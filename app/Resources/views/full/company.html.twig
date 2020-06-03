@@ -1,0 +1,98 @@
+{% extends '@ezdesign/pagelayout.html.twig' %}
+{% block title %}{{ 'Company'|trans }}{% endblock %}
+{% block page_top %}
+        <div class="cs-container_c d-flex justify-content-start align-items-center mt-5"><h2 class="mt-5 mt-lg-0 mr-auto fs-18 text-white m-0"><b class="ml-0 ml-lg-4 pl-3 mr-2 yellow">AK</b><i class="rail-light">SOFTWARE</i></h2></div>
+{% endblock %}
+{% block content %}
+    <main class="py-0 py-lg-5 my-lg-5">
+        <div class="cs-container_l text-center my-lg-5">
+            <div class="px-4 px-lg-0 pt-0 mb-5 bgc-stripped">
+                <div class="d-flex flex-column flex-lg-row justify-content-start align-items-start align-items-lg-center px-2 px-lg-4 py-1">
+                    <div class="main-title mr-4 order-1 order-lg-0 mb-3 mb-lg-0">
+                        <h1 class="cfs-05 text-dark">{{ ez_field_value(content,'page_title') }}</h1>
+                    </div>
+                    <div class="breadcrumb bg-transparent p-0 mt-3 cfs-00">
+                        <a class="breadcrumb-item d-a" href="index.html">{{ 'Home'|trans }}</a>
+                        <span class="breadcrumb-item gray-s--h">{{ ez_field_value(content,'page_title') }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cs-container_l text-center my-5">
+            <div class="c-title pt-5" data-aos="zoom-in">
+                <h2 class="cfs-06"><i class="text-white b p-2">{{ 'ABOUT'|trans }}</i><strong class="ml-3 b rail-light">AK SOFTWARE</strong></h2>
+            </div>
+            <div class="divider border-bottom my-5">
+                <div class="divide-inside mx-auto mt-4"></div>
+            </div>
+        </div>
+        <div class="cs-container text-center my-5">
+            <div class="d-flex flex-column col-12 col-md-10 py-0 py-xl-5 mx-auto">
+                <div class="d-flex flex-column flex-lg-row">
+                    <div class="col-12 col-lg-5 ml-auto order-0 order-lg-1">
+                        <img src="{{ ez_field_value(content,'main_image').uri }}" class="img-fluid aos-item" data-aos="fade-down" alt="About AK Software">
+                    </div>
+                    <p class="aos-item text-justify pt-5 cfs-02 order-1 order-lg-0 rail-light px-4 lh-35" data-aos="fade-up">
+                        {{ ez_field_value(content,'main_text') }}
+                    </p>
+                </div>
+            </div>
+            <div class="border-bottom my-0">
+                <div class="divide-inside mx-auto mt-4"></div>
+            </div>
+            <div class="cs-container_m">
+                <div class="team-title d-flex justify-content-between py-5 text-left px-4 px-md-5 px-md-0 w-100">
+                    <div class="d-flex flex-column pl-0 w-100">
+                        <small class="rail-light cfs-1 gray-s" data-aos="fade-left">AK Software<i class="cfs-07"> 's</i></small>
+                        <p class="mvc-title d-flex flex-column flex-md-row rail-light b">
+                            <span class="gray-s--h cfs-07 italic b" data-aos="fade-up">{{ 'MISSION'|trans }} , </span>
+                            <span class="gray-s--h cfs-07 italic b" data-aos="fade-down">{{ 'VISION'|trans }} , </span>
+                            <span class="gray-s--h cfs-07 italic b" data-aos="fade-up">{{ 'CORE VALUES'|trans }}</span>
+                        </p>
+                    </div>
+                    <h3 class="cfs-03 gray-s italic rail-light aos-item ml-auto pl-5 border-left mvc-moto" data-aos="fade-right">{{ ez_field_value(content,'motto') }}</h3>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="d-flex flex-column flex-xl-row justify-content-between border-top py-5">
+                    <div class="d-flex flex-column justify-content-end">
+                        <div class="row mx-0">    
+                            <div class="media col-12 col-xl-9 ml-auto d-flex flex-column flex-md-row align-items-center">
+                                <img src="{{ ez_field_value(content,'mission_image').uri }}" class="mr-0 mr-md-3 mvc-icons img-fluid" alt="ak-software-mission" data-aos="zoom-in">
+                                <div class="media-body text-left px-0 px-md-5">
+                                    <h5 class="text-center text-md-left my-4 my-md-3 cfs-04 b" data-aos="fade-down">{{ ez_field_value(content,'mission_title') }}</h5>
+                                    <div class="text-left cfs-02 aos-item" data-aos="fade-up">
+                                        <p class="gray-s">{{ ez_field_value(content,'mission_text') }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mx-0 my-5 py-5">
+                            <div class="media col-12 col-xl-10 ml-auto d-flex flex-column flex-md-row align-items-center">
+                                <img src="{{ ez_field_value(content,'vision_image').uri }}" class="mr-0 mr-md-3 mvc-icons" alt="ak-software-vision" data-aos="zoom-out">
+                                <div class="media-body text-left px-0 px-md-5">
+                                    <h5 class="text-center text-md-left my-4 my-md-3 mt-0 cfs-04 b" data-aos="fade-up">{{ ez_field_value(content,'vision_title') }}</h5>
+                                    <div class="text-left cfs-02 aos-item" data-aos="fade-down">
+                                        <p class="gray-s">{{ ez_field_value(content,'vision_text') }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mx-0">
+                            <div class="media col-12 col-xl-9 ml-auto d-flex flex-column flex-md-row align-items-center">
+                                <img src="{{ ez_field_value(content,'values_image').uri }}" class="mr-0 mr-md-3 mvc-icons" alt="ak-software-core-value" data-aos="zoom-in">
+                                <div class="media-body text-left px-0 px-md-5">
+                                    <h5 class="text-center text-md-left my-4 my-md-3 mt-0 cfs-04 b" data-aos="fade-down">{{ ez_field_value(content,'values_title') }}</h5>
+                                    <div class="text-left cfs-02 aos-item" data-aos="fade-up">
+                                        <p class="gray-s">{{ ez_field_value(content,'values_text') }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="{{ ez_field_value(content,'mvc_image').uri }}" alt="ak-software-mvc" class="mvc-img d-none d-xl-block" data-aos="zoom-in">
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
