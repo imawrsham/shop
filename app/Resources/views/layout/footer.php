@@ -1,2 +1,2 @@
 <?php
-echo 'salam';
+echo 'salam123';
