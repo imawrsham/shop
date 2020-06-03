@@ -1,0 +1,18 @@
+<div class="dt-loader-container">
+    <div class="ts-wrapper">
+        <div class="loader-text text-center mb-3"><img src="{{ asset("ak/img/loader.png", "ezdesign") }}" alt="ak-software" class="loader-img img-fluid"></div>
+        <div class="tsc-loader">
+        </div>
+    </div>
+</div>
+<nav class="nav-icon d-flex d-lg-none py-2 justify-content-between align-items-center">
+    <img src="{{ asset("ak/img/icon-alt.png", "ezdesign") }}" alt="AK-Software-GmbH" class="g-scale res-icon ml-3 mt-2 tog-img">
+    <h2 class="mr-auto fs-11 text-white m-0 tog-title d-none"><b class="ml-0 ml-lg-4 pl-3 mr-2 yellow">AK</b><i class="rail-light">SOFTWARE</i></h2>
+    <button class="toggle-menu"><span></span></button>
+</nav>
+<header class="d-flex justify-content-between">
+    <div class="left-area d-none d-lg-flex flex-column justify-content-between p-3">
+        <img src="{{ asset("ak/img/aksoftware.png", "ezdesign") }}" class="g-scale ml-3 mt-3 w-75" alt="">
+    </div>
+    {{ render(controller( "AppBundle:Menu:menu")) }}
+</header>

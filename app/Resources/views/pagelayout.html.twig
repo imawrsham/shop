@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {{ include("@ezdesign/layout/head-scripts.html.twig") }}
+        <title>{% block title %}{% endblock %}</title>
+        {% block styles %}{% endblock %}
+    </head>
+    <body>
+        {{ include("@ezdesign/layout/header.html.twig") }}
+        {% block page_top %}{% endblock %}</div></header>
+        {% block content %}{% endblock %}
+        {{ include("@ezdesign/layout/footer.html.twig") }}
+        {% block scripts %}{% endblock %}
+    </body>
+</html>
