@@ -1,4 +1,27 @@
-
+<?php
+$servername = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'test';
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if(!$conn){
+    die("Connection Failed!". mysqli_connect_error());
+};
+$status = '';
+if(isset($_POST['new']) && $_POST['new']==1){
+    $firstname = $_REQUEST['firstname'];
+    $lastname = $_REQUEST['lastname'];
+    $email = $_REQUEST['email'];
+    $address =$_REQUEST['address'];
+    $sql = "INSERT INTO costumers 
+        (`firstname`, `lastname`, `email`, `address`) VALUES
+        ('$firstname', '$lastname', '$email', '$address')";
+    mysqli_query($conn, $sql)
+    or die(mysqli_error($conn));
+    $status = "New Costumers Inserted Successfully. </br></br>
+    <a href='view.php'>View Inserted Record</a>";
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -48,18 +71,19 @@
         </div>
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Billing address</h4>
-            <form class="needs-validation" novalidate>
+            <form name="form" method="post" action="" class="needs-validation" novalidate>
+                <input type="hidden" name="new" value="1">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                        <label for="firstname">First name</label>
+                        <input type="text" class="form-control" name="firstname" placeholder="" value="" required>
                         <div class="invalid-feedback">
                             Valid first name is required.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                        <label for="lastname">Last name</label>
+                        <input type="text" class="form-control" name="lastname" placeholder="" value="" required>
                         <div class="invalid-feedback">
                             Valid last name is required.
                         </div>
@@ -67,7 +91,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                    <input type="email" class="form-control" name="email" placeholder="you@example.com">
                     <div class="invalid-feedback">
                         Please enter a valid email address for shipping updates.
                     </div>
@@ -75,7 +99,7 @@
 
                 <div class="mb-3">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                    <input type="text" class="form-control" name="address" placeholder="1234 Main St" required>
                     <div class="invalid-feedback">
                         Please enter your shipping address.
                     </div>

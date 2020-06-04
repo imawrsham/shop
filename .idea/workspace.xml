@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3a052b6-f9e5-40f5-8798-3d17f6a3a6fd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/full/home.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/images/icon-vector.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icon-vector.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/costumer.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/costumer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/view/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/view/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/insert.php" beforeDir="false" afterPath="$PROJECT_DIR$/modle/insert.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/tablecostumers.php" beforeDir="false" afterPath="$PROJECT_DIR$/modle/tablecostumers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/tableproducts.php" beforeDir="false" afterPath="$PROJECT_DIR$/modle/tableproducts.php" afterDir="false" />
+    <list default="true" id="274187dd-fbb2-4312-8984-17ccb40f3308" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/model/costumer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modle/insert.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/insert.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modle/tablecostumers.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/tablecostumers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modle/tableproducts.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/tableproducts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/costumer.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/costumer.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,47 +33,43 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\laragon\www\Shop\.idea" />
-      </set>
-    </option>
-  </component>
-  <component name="ProjectId" id="1clFOFZEmnQMbedNaJK23ZshWKR" />
+  <component name="ProjectId" id="1clXAl6YFRdX9DgYgDw9yu2dV97" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="PHP" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\shop\images" />
-      <recent name="C:\laragon\www\shop\modle" />
-      <recent name="C:\laragon\www\shop\view" />
-      <recent name="C:\laragon\www\shop\app\Resources\views\images" />
-      <recent name="C:\laragon\www\shop\app\Resources\views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\shop" />
-      <recent name="C:\laragon\www\shop\app\Resources\views" />
-      <recent name="C:\laragon\www\Shop" />
-      <recent name="C:\laragon\www\Shop\app\Resources\views\full" />
-      <recent name="C:\laragon\www\Shop\app\Resources\views" />
+      <recent name="C:\laragon\www\shop\app\Resources\views\layout" />
+      <recent name="C:\laragon\www\shop\app\Resources\views\full" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -65,30 +77,46 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b3a052b6-f9e5-40f5-8798-3d17f6a3a6fd" name="Default Changelist" comment="" />
-      <created>1591095238557</created>
+      <changelist id="274187dd-fbb2-4312-8984-17ccb40f3308" name="Default Changelist" comment="" />
+      <created>1591104012293</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1591095238557</updated>
-      <workItem from="1591095239957" duration="17642000" />
+      <updated>1591104012293</updated>
+      <workItem from="1591104014478" duration="3746000" />
+      <workItem from="1591170186090" duration="20764000" />
+      <workItem from="1591256287843" duration="14980000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="784" y="360" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591178779038">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="542" y="266" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591187206477">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="784" y="360" key="#com.intellij.fileTypes.FileTypeChooser/2560.360.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1591178779038" />
-    <state x="533" y="200" key="SettingsEditor" timestamp="1591187623777">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="542" y="266" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.860@0.0.1440.860" timestamp="1591187206477" />
+    <state x="723" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1591104788022" />
+    <state x="596" y="366" key="NewPhpFileDialog" timestamp="1591276055007">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="533" y="200" key="SettingsEditor/2560.360.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1591187623777" />
-    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup" timestamp="1591269468200">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="596" y="366" key="NewPhpFileDialog/0.0.1440.860@0.0.1440.860" timestamp="1591276055007" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591106745317" />
+    <state x="221" y="75" key="SettingsEditor" timestamp="1591190884693">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup/2560.360.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1591269468200" />
+    <state x="221" y="75" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1591190884693" />
   </component>
 </project>
