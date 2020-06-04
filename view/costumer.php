@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <?php include "header.html.twig";?>
+    <?php include "header.html";?>
     <hr>
     <br/><br/>
     <meta charset="utf-8">
@@ -89,7 +89,7 @@
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
             </form>
         </div>
-   <?php include "footer.html.twig"; ?>
+   <?php include "footer.html"; ?>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
