@@ -20,18 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="274187dd-fbb2-4312-8984-17ccb40f3308" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/layout/tablecostumers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/layout/tableproducts.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/layout/footer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/costumer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/layout/costumer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/footer-scripts.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/footer.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/layout/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/head-scripts.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/header.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/layout/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/menu.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/pagelayout.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/layout/header.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +32,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,6 +50,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -82,7 +82,7 @@
       <updated>1591104012293</updated>
       <workItem from="1591104014478" duration="3746000" />
       <workItem from="1591170186090" duration="20764000" />
-      <workItem from="1591256287843" duration="7249000" />
+      <workItem from="1591256287843" duration="8665000" />
     </task>
     <servers />
   </component>
