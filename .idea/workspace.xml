@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3a052b6-f9e5-40f5-8798-3d17f6a3a6fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/view/header.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icon-vector.png" beforeDir="false" afterPath="$PROJECT_DIR$/view/images/icon-vector.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/costumer.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/costumer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/header.html" beforeDir="false" />
+ master
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,18 +38,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\shop\view\images" />
-      <recent name="C:\laragon\www\shop\view" />
-      <recent name="C:\laragon\www\shop\images" />
-      <recent name="C:\laragon\www\shop\modle" />
-      <recent name="C:\laragon\www\shop\app\Resources\views\images" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\shop" />
-      <recent name="C:\laragon\www\shop\app\Resources\views" />
-      <recent name="C:\laragon\www\Shop" />
-      <recent name="C:\laragon\www\Shop\app\Resources\views\full" />
-      <recent name="C:\laragon\www\Shop\app\Resources\views" />
+ master
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -68,8 +50,7 @@
       <created>1591095238557</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1591095238557</updated>
-      <workItem from="1591095239957" duration="30931000" />
+ master
     </task>
     <servers />
   </component>
@@ -77,16 +58,7 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="784" y="360" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591178779038">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="784" y="360" key="#com.intellij.fileTypes.FileTypeChooser/2560.360.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1591178779038" />
-    <state x="533" y="200" key="SettingsEditor" timestamp="1591187623777">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="533" y="200" key="SettingsEditor/2560.360.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1591187623777" />
-    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup" timestamp="1591269468200">
-      <screen x="0" y="0" width="2048" height="1112" />
+ master
     </state>
     <state x="687" y="243" width="672" height="678" key="search.everywhere.popup/2560.360.1536.824/0.0.2048.1112@0.0.2048.1112" timestamp="1591269468200" />
   </component>

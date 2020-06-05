@@ -72,7 +72,7 @@ if(isset($_POST['new']) && $_POST['new']==1){
             </ul>
         </div>
         <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">Billing address</h4>
+            <h4 class="mb-3">Costumer Information</h4>
             <form name="form" method="post" action="" class="needs-validation" novalidate>
                 <input type="hidden" name="new" value="1">
                 <div class="row">
