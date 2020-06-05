@@ -43,6 +43,7 @@
                 <td align="center"><?php echo $row['name']; ?></td>
                 <td align="center"><?php echo $row["price"]; ?></td>
                 <td align="center"><?php echo $row["ram"]; ?></td>
+                <td align="center"><?php echo $row["image"]; ?></td>
                 <td align="center">
                     <a href="edit.php?id=<?php echo $row["id"]; ?>">Select</a>
                 </td>
