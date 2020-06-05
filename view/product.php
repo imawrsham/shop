@@ -1,35 +1,48 @@
-<div class="card" style="width: 18rem;">
-  <img src="http://localhost/shop/images/DellA.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">
-        <?php
-        $servername = 'localhost';
-        $username = 'root';
-        $password = '';
-        $dbname = 'test';
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<head>
+    <?php include "header.php";?>
+</head>
+<body>
+<!doctype html>
+<html lang="en">
 
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
-        if(!$conn){
-            die("Connection Failed!". mysqli_connect_error());
-        }
+<title>Products</title>
+<div class="container">
+    <?php
+    $servername = 'localhost';
+    $username = 'root';
+    $password = '';
+    $dbname = 'test';
 
-        $sql = "SELECT id, name, price, ram  FROM products WHERE id='1'";
-        $result = $conn->query($sql);
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    if(!$conn){
+        die("Connection Failed!". mysqli_connect_error());
+    }
 
-        if ($result->num_rows > 0) {
+    $sql = "SELECT id, name, price, ram, image  FROM products WHERE Id";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["name"]. " - Price: " . $row["price"]. "- ram:".$row["ram"]. "<br>";
+            $id = $row["id"];
+            $name = $row["name"];
+            $price = $row["price"];
+            $ram = $row["ram"];
+            echo "<div class = 'row'><img src='../".$row["image"]."'  width=\"200\" height=\"200\" />";
+            echo '<a href="product.php?id='.$id.'"><br>Model: '.$name.'</a>';
+            echo "<br>";
+            echo '<a href="product.php?id='.$id.'"><br><br><br>Price: '.$price.'</a>';
+            echo "<br>";
+            echo '<a href="product.php?id='.$id.'"><br><br><br><br><br>Ram:'.$ram.'</a>';
+            echo "<br></div>";
         }
-        } else {
+    } else {
         echo "0 results";
-        }
-        $conn->close();
-        ?>
-
-
-
-
-
-    </p>
-  </div>
+    }
+    $conn->close();
+    ?>
 </div>
+</body>
+<footer>
+    <?php include "footer.html"; ?>
+</footer>
