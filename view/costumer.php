@@ -22,10 +22,12 @@ if(isset($_POST['new']) && $_POST['new']==1){
     <a href='view.php'>View Inserted Record</a>";
 }
 ?>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <!doctype html>
 <html lang="en">
 <head>
-    <?php include "header.html";?>
+    <?php include "header.php";?>
     <hr>
     <br/><br/>
     <meta charset="utf-8">
@@ -36,39 +38,6 @@ if(isset($_POST['new']) && $_POST['new']==1){
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-muted">Your cart</span>
-                <span class="badge badge-secondary badge-pill">3</span>
-            </h4>
-            <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Product name</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$12</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Second product</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Third item</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (USD)</span>
-                    <strong>$20</strong>
-                </li>
-            </ul>
-        </div>
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Costumer Information</h4>
             <form name="form" method="post" action="" class="needs-validation" novalidate>
@@ -113,7 +82,11 @@ if(isset($_POST['new']) && $_POST['new']==1){
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
             </form>
         </div>
-   <?php include "footer.html"; ?>
+        <div class="footer">
+            <?php include "footer.html";?>
+
+        </div>
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
