@@ -43,7 +43,7 @@
                         <h5 class="text-info"><?php echo '<a href="product.php?id='.$id.'">'.$name.'</a>'; ?></h5>
                         <h5 class="text-danger"><?php echo '<a href="product.php?id='.$id.'">'.$price.' Euro'.'</a>'; ?></h5>
                         <h4 class="text-danger"><?php echo '<a href="product.php?id='.$id.'">'.$ram.' Gb'.'</a>'; ?></h4>
-                        <!--<input type="text" name="quantity" class="form-control" value="1">-->
+
                         <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>">
                         <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
                         <button type="submit" class="btn btn-warning my-3" name="add">Add to Cart <i class="fas fa-shopping-cart"></i></button>
@@ -56,18 +56,5 @@
         }
     }
     ?>
-
-    <?php
-    if(isset($_POST['add']) && $_POST['new']==1){
-        $id = $_GET[$row['id']];
-        $sql = "INSERT INTO baskets
-        (`ID`) VALUES
-        ('$id')";
-
-    }
-    ?>
-
-</body>
-<footer>
     <?php include "footer.html"; ?>
-</footer>
+</body>
