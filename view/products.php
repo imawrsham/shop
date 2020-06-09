@@ -40,11 +40,18 @@
                 <form method="post" action="product.php?id=<?php echo $row["id"]; ?>">
                     <div class="card shadow">
                         <img src="<?php echo $row["image"]; ?>" width="245" height="230" class="img-responsive">
+<<<<<<< HEAD
                         <h5 class="text-info"><?php echo $name; ?></h5>
                         <h5 class="text-danger"><?php echo $price.' Euro'; ?></h5>
                         <h4 class="text-danger"><?php echo $ram.' Gb'; ?></h4>
                         <h6 class="text-danger"><?php echo '<a href="product.php?id='.$id.'">Details</a>'; ?></h6>
                         <!--<input type="text" name="quantity" class="form-control" value="1">-->
+=======
+                        <h5 class="text-info"><?php echo '<a href="product.php?id='.$id.'">'.$name.'</a>'; ?></h5>
+                        <h5 class="text-danger"><?php echo '<a href="product.php?id='.$id.'">'.$price.' Euro'.'</a>'; ?></h5>
+                        <h4 class="text-danger"><?php echo '<a href="product.php?id='.$id.'">'.$ram.' Gb'.'</a>'; ?></h4>
+
+>>>>>>> 6ee201f3c31f5c8f375cd355ceaa47ad319bdae1
                         <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>">
                         <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
                         <button type="submit" class="btn btn-warning my-3" name="add">Add to Cart <i class="fas fa-shopping-cart"></i></button>
@@ -57,18 +64,5 @@
         }
     }
     ?>
-
-    <?php
-    if(isset($_POST['add']) && $_POST['new']==1){
-        $id = $_GET[$row['id']];
-        $sql = "INSERT INTO baskets
-        (`ID`) VALUES
-        ('$id')";
-
-    }
-    ?>
-
-</body>
-<footer>
     <?php include "footer.html"; ?>
-</footer>
+</body>
