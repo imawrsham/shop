@@ -8,7 +8,8 @@
     <title>Homepage</title>
     <br/><br/><br/><br/><br/><br/>
 </head>
-<body id="a">
+<body class="full-body" style="background-image:url('homepage.jpg') ; background-repeat: no-repeat;
+     background-position: center;">
 <div class="wrapper">
     <div calss="push">
 

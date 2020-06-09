@@ -1,14 +1,11 @@
- #a{
-    background-image: url(images/homepage.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-
-}
- * {
-     margin: 0;
- }
  html, body {
      height: 100%;
+ }
+ .full-body {
+     background-image: url("homepage.jpg");
+     background-repeat: no-repeat;
+     background-position: center;
+
  }
  .wrapper {
      min-height: 100%;
