@@ -14,4 +14,3 @@
     <?php include "menu.html";?>
 </nav>
 </div>
-
