@@ -79,7 +79,7 @@ if(isset($_POST['new']) && $_POST['new']==1){
                     <label class="custom-control-label" for="save-info">Save this information for next time</label>
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit"><a href="homepage.php">Continue to checkout</a></button>
             </form>
             <?php include "footer.html";?>
         </div>
