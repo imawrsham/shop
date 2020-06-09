@@ -28,7 +28,8 @@
             $name = $row["name"];
             $price = $row["price"];
             $ram = $row["ram"];
-            echo "<div class = 'row'><img src='../".$row["image"]."'  width=\"200\" height=\"200\" />";
+            echo "<div class = 'row'>
+            <img src='../".$row["image"]."'  width=\"200\" height=\"200\" />";
             echo '<a href="product.php?id='.$id.'"><br>Model: '.$name.'</a>';
             echo "<br>";
             echo '<a href="product.php?id='.$id.'"><br><br><br>Price: '.$price.'</a>';
