@@ -43,9 +43,6 @@ if(!$conn){
                             <h5 class="text-danger"><?php echo $price.' Euro'; ?></h5>
                             <h4 class="text-danger"><?php echo $ram.' Gb'; ?></h4>
                             <h5 class="text-info"><?php echo $desc; ?></h5>
-                            <!--<input type="text" name="quantity" class="form-control" value="1">-->
-                            <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>">
-                            <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
                             <button type="submit" class="btn btn-warning my-3" name="add">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                         </div>
                     </form>
@@ -56,6 +53,7 @@ if(!$conn){
     }
 }
 ?>
+
 </body>
 <footer>
     <?php include "footer.html"; ?>
