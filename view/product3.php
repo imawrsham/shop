@@ -10,9 +10,6 @@
     <?php include "header.php";?>
 </head>
 <body>
-<!doctype html>
-<html lang="en">
-
 <title>Products</title>
 <div class="container">
     <?php
@@ -39,12 +36,10 @@
 
                 <form method="post" action="product3.php?action=add&id=<?php echo $row["id"]; ?>">
                     <div class="card shadow">
+                        <input type="hidden" name="new" value="1">
                         <img src="<?php echo $row["image"]; ?>" width="200" height="200" class="img-responsive">
                         <h5 class="text-info"><?php echo $row["name"]; ?></h5>
                         <h5 class="text-danger"><?php echo $row["price"]; ?></h5>
-                        <!--<input type="text" name="quantity" class="form-control" value="1">-->
-                        <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>">
-                        <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
                         <button type="submit" class="btn btn-warning my-3" name="add">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </form>
@@ -56,6 +51,17 @@
     }
     ?>
 
+    <?php
+    if(isset($_POST['add']) && $_POST['new']==1){
+        $id = $_GET[$row['id']];
+        $sql = "INSERT INTO baskets
+        (`ID`) VALUES
+        ('$id')";
+
+    }
+    ?>
+
+</div>
 
 
 </body>
