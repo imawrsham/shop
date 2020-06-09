@@ -40,9 +40,10 @@
                 <form method="post" action="product.php?id=<?php echo $row["id"]; ?>">
                     <div class="card shadow">
                         <img src="<?php echo $row["image"]; ?>" width="245" height="230" class="img-responsive">
-                        <h5 class="text-info"><?php echo '<a href="product.php?id='.$id.'">'.$name.'</a>'; ?></h5>
-                        <h5 class="text-danger"><?php echo '<a href="product.php?id='.$id.'">'.$price.' Euro'.'</a>'; ?></h5>
-                        <h4 class="text-danger"><?php echo '<a href="product.php?id='.$id.'">'.$ram.' Gb'.'</a>'; ?></h4>
+                        <h5 class="text-info"><?php echo $name; ?></h5>
+                        <h5 class="text-danger"><?php echo $price.' Euro'; ?></h5>
+                        <h4 class="text-danger"><?php echo $ram.' Gb'; ?></h4>
+                        <h6 class="text-danger"><?php echo '<a href="product.php?id='.$id.'">Details</a>'; ?></h6>
                         <!--<input type="text" name="quantity" class="form-control" value="1">-->
                         <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>">
                         <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
