@@ -28,7 +28,7 @@
     }
     if (isset($_POST['new']) && $_POST['new'] == 1) {
         $id = $_POST['id'];
-        $sql2 = "INSERT INTO baskets (`ID`) VALUES (".$id.")";
+        $sql2 = "INSERT INTO baskets (`productID`) VALUES (".$id.")";
         $result2 = $conn->query($sql2);
     }
 
@@ -42,12 +42,12 @@
             $ram = $row["ram"];
             ?>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <form method="post" action="products.php?id=<?php echo $row["id"]; ?>">
                      <input type="hidden" name="new" value="1">
                     <input type="hidden" name="id" value="<?php echo $id?>">
                     <div class="card shadow">
-                        <img src="<?php echo $row["image"]; ?>" width="245" height="230" class="img-responsive">
+                        <img src="<?php echo $row["image"]; ?>" width="338" height="280" class="img-responsive">
 
                         <h5 class="text-info"><?php echo $name; ?></h5>
                         <h5 class="text-danger"><?php echo $price.' Euro'; ?></h5>
