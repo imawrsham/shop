@@ -22,23 +22,23 @@ if(isset($_POST['new']) && $_POST['new']==1){
     <a href='view.php'>View Inserted Record</a>";
 }
 ?>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--- Font Awesome--->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <?php include "header.php";?>
+</head>
+<body>
 <!doctype html>
 <html lang="en">
-<head>
-    <?php include "header.php";?>
-    <hr>
-    <br/><br/>
-    <meta charset="utf-8">
-    <title>Checkout Costumer</title>
-</head>
-
-<body class="bg-light">
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8 order-md-1">
+    <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Costumer Information</h4>
             <form name="form" method="post" action="" class="needs-validation" novalidate>
                 <input type="hidden" name="new" value="1">
@@ -81,13 +81,12 @@ if(isset($_POST['new']) && $_POST['new']==1){
                 <hr class="mb-4">
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
             </form>
-        </div>
-        <div class="footer">
             <?php include "footer.html";?>
-
         </div>
-
-
+    </div>
+        </div>
+</html>
+</body>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
