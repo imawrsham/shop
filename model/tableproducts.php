@@ -14,7 +14,12 @@ $sql = "CREATE TABLE baskets (
     PRIMARY KEY (basketID)
 )";
 $sql1 = "ALTER TABLE baskets ADD FOREIGN KEY (id) REFERENCES products (id)";
-
+$sql2 = "CREATE TABLE orders (
+    id int NOT NULL,
+    basket_id int NOT NULL,
+    costumer_id int,
+    PRIMARY KEY (id)";
+$sql3 = "ALTER TABLE orders ADD FOREIGN KEY (basket_id) REFERENCES baskets (id)";
 
 if(mysqli_query($conn, $sql1)){
     echo "Table Products created successfully";
