@@ -42,25 +42,18 @@
             $price = $row["price"];
             $ram = $row["ram"];
             ?>
-<<<<<<< HEAD
-
-            <div class="col-md-4">
-=======
             <div class="col-md-3">
->>>>>>> 56a3323938b5ba033b8e3af54f2bdae879cabf78
                 <form method="post" action="products.php?id=<?php echo $row["id"]; ?>">
                      <input type="hidden" name="new" value="1">
                     <input type="hidden" name="id" value="<?php echo $id?>">
                     <div class="card shadow">
-                        <img src="<?php echo $row["image"]; ?>" width="338" height="280" class="img-responsive">
+                        <img src="<?php echo $row["image"]; ?>" width="245" height="210" class="img-responsive">
 
                         <h5 class="text-info"><?php echo $name; ?></h5>
                         <h5 class="text-danger"><?php echo $price.' Euro'; ?></h5>
                         <h6 class="text-danger"><?php echo $ram.' Gb'; ?></h6>
                         <h6 class="text-danger"><?php echo '<a href="product.php?id='.$id.'">Details</a>'; ?></h6>
-<<<<<<< HEAD
 
-=======
                         <h6 style="color: yellowgreen";>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -68,7 +61,7 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </h6>
->>>>>>> 56a3323938b5ba033b8e3af54f2bdae879cabf78
+
                         <button type="submit" class="btn btn-warning my-3" name="add">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </form>

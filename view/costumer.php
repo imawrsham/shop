@@ -88,9 +88,9 @@ if(isset($_POST['new']) && $_POST['new']==1) {
                 <tr class="success">
                     <th><strong>No</strong></th>
                     <th><strong>Cancel</strong></th>
-                    <th><strong>ProductID</strong></th>
                     <th><strong>ProductName</strong></th>
                     <th><strong>PriceName</strong></th>
+                    <th><strong>Quantity</strong></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -103,7 +103,6 @@ if(isset($_POST['new']) && $_POST['new']==1) {
                     <tr class="info">
                     <td><?php echo $count; ?></td>
                     <td><a href="delete.php?id=<?php echo $row["ID"]; ?>">Cancel</a></td>
-                    <td><?php echo $row['productID']; ?></td>
                     <?php
                     $sql2 ="SELECT name, price FROM products WHERE  id='".$row['productID']."'";
                     $result2 = $conn->query($sql2);
