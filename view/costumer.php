@@ -7,21 +7,67 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if(!$conn){
     die("Connection Failed!". mysqli_connect_error());
 };
-$status = '';
-if(isset($_POST['new']) && $_POST['new']==1){
+/*$status = '';
+if(isset($_POST['new']) && $_POST['new']==1) {
     $firstname = $_REQUEST['firstname'];
     $lastname = $_REQUEST['lastname'];
     $email = $_REQUEST['email'];
-    $address =$_REQUEST['address'];
+    $address = $_REQUEST['address'];
     $sql = "INSERT INTO costumers 
         (`firstname`, `lastname`, `email`, `address`) VALUES
         ('$firstname', '$lastname', '$email', '$address')";
-    mysqli_query($conn, $sql)
-    or die(mysqli_error($conn));
-    $status = "New Costumers Inserted Successfully. </br></br>
-    <a href='view.php'>View Inserted Record</a>";
-}
+    $costumer_id = 0;
+    if (mysqli_query($conn, $sql)) {
+        $costumer_id = mysqli_insert_id($conn);
+    } else {
+        mysqli_error($conn);
+    }
+    if ($costumer_id > 0) {
+        //$t = date("h:i:sa");
+        //$sql2 = "INSERT INTO orders (`costumerid`,`ordertime`) VALUES (".$costumer_id.",".$t.")";
+        //$sql2 = "INSERT INTO orders
+       // (`costumerid`, `ordertime`) VALUES
+        //('$firstname', '$t')";
+        $sql2 = "INSERT INTO orders (`costumerid`) VALUES (" . $costumer_id . ")";
+        $order_id = 0;
+        if (mysqli_query($conn, $sql2)) {
+            $order_id = mysqli_insert_id($conn);
+        }
+        if ($order_id > 0) {
+            $sql4 = "SELECT * FROM baskets";
+            $result4 = mysqli_query($conn, $sql4);
+            if ($result4->num_rows > 0) {
+                while ($row = mysqli_fetch_assoc($result4)) {
+                    $sql6 = "SELECT name, price FROM products WHERE id='".$row['productID']."'";
+                    $result6 = mysqli_query($conn, $sql6);
+                    //var_dump($result6);
+                    if ($result6->num_rows > 0) {
+                            $row1= mysqli_fetch_assoc($result6);
+                            $product_name = $row1['name'];
+                            $product_price = $row1['price'];
+                            //var_dump($product_price);
+                        $sql3= "INSERT INTO order_items 
+        (`orderid`, `productname`, `productprice`) VALUES
+        ('$order_id', '$product_name', '$product_price')";
+                            //$sql3 = "INSERT INTO order_items (`orderid`,`productname`,`productprice`) VALUES (".$order_id.",".$product_name.",".$product_price.")";
+                            $result3 = mysqli_query($conn, $sql3);
+                            //var_dump($result3);
+                            if (mysqli_query($conn, $sql3)) {
+                                $sql5 = "DELETE FROM baskets";
+                                $result5 = mysqli_query($conn, $sql5);
+                                //var_dump($result5);
+
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}*/
 ?>
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -31,16 +77,52 @@ if(isset($_POST['new']) && $_POST['new']==1){
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <?php include "header.php";?>
+    <title>Orders</title>
 </head>
 <body>
-<!doctype html>
-<html lang="en">
-
 <div class="container">
-    <div class="row">
-    <div class="col-md-8 order-md-1">
+        <div class="form">
+            <h2 style="text-align: center;">View Orders</h2>
+            <table class="table">
+                <thead>
+                <tr class="success">
+                    <th><strong>No</strong></th>
+                    <th><strong>Cancel</strong></th>
+                    <th><strong>ProductID</strong></th>
+                    <th><strong>ProductName</strong></th>
+                    <th><strong>PriceName</strong></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                $count = 1;
+                $sql = "SELECT * FROM baskets ORDER BY id asc;";
+                $result = mysqli_query($conn, $sql);
+                $total_price = 0;
+                while($row = mysqli_fetch_assoc($result)) {?>
+                    <tr class="info">
+                    <td><?php echo $count; ?></td>
+                    <td><a href="delete.php?id=<?php echo $row["ID"]; ?>">Cancel</a></td>
+                    <td><?php echo $row['productID']; ?></td>
+                    <?php
+                    $sql2 ="SELECT name, price FROM products WHERE  id='".$row['productID']."'";
+                    $result2 = $conn->query($sql2);
+                    if ($result2->num_rows > 0) {
+                        while($row = $result2->fetch_assoc()) {
+                            $name = $row["name"];
+                            $price = $row["price"];?>
+                            <td><?php echo $row['name'] ;?></td>
+                            <td><?php echo $row['price'] ;?></td>
+                            </tr>
+                            <?php $total_price += $row['price'];
+                            $count++;}}};?>
+
+                </tbody>
+            </table>
+            <?php echo"<h5 style='text-align: right'>Total Price:".$total_price."</h5>";?>
+    <div>
             <h4 class="mb-3">Costumer Information</h4>
-            <form name="form" method="post" action="" class="needs-validation" novalidate>
+            <form name="form" method="post" action="success.php" class="needs-validation" novalidate>
                 <input type="hidden" name="new" value="1">
                 <div class="row">
                     <div class="col-md-6 mb-3">
@@ -74,19 +156,12 @@ if(isset($_POST['new']) && $_POST['new']==1){
                     </div>
                 </div>
                 <hr class="mb-4">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="save-info">
-                    <label class="custom-control-label" for="save-info">Save this information for next time</label>
-                </div>
-                <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit"><a href="homepage.php">Continue to checkout</a></button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
             </form>
-            <?php include "footer.html";?>
         </div>
     </div>
+    <?php include "footer.html";?>
         </div>
-</html>
-</body>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
