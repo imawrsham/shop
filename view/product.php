@@ -23,6 +23,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if(!$conn){
     die("Connection Failed!". mysqli_connect_error());}
 $status = "";
+$count = 1;
 if (isset($_POST['new']) && $_POST['new'] == 1) {
     $id = $_POST['id'];
     $sql2 = "INSERT INTO baskets (`productID`) VALUES (".$id.")";

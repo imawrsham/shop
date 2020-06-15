@@ -22,12 +22,13 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
         mysqli_error($conn);
     }
     if ($costumer_id > 0) {
-        //$t = date("h:i:sa");
+        $t = date("h:i:s");
         //$sql2 = "INSERT INTO orders (`costumerid`,`ordertime`) VALUES (".$costumer_id.",".$t.")";
-        //$sql2 = "INSERT INTO orders
-        // (`costumerid`, `ordertime`) VALUES
-        //('$firstname', '$t')";
-        $sql2 = "INSERT INTO orders (`costumerid`) VALUES (" . $costumer_id . ")";
+        $sql2 = "INSERT INTO orders
+        (`costumerid`, `ordertime`) VALUES
+        ('$costumer_id', '$t')";
+         //var_dump($sql2);
+        //$sql2 = "INSERT INTO orders (`costumerid`) VALUES (" . $costumer_id . ")";
         $order_id = 0;
         if (mysqli_query($conn, $sql2)) {
             $order_id = mysqli_insert_id($conn);

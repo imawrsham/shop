@@ -62,7 +62,14 @@
                             <i class="far fa-star"></i>
                         </h6>
 
-                        <button type="submit" class="btn btn-warning my-3" name="add">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                        <div>
+                            <button type="button" class="btn bg-light border rounded-circle"><i class="fas fa-minus"></i></button>
+                            <input type="text" value="1" class="form-control w-25 d-inline">
+                            <button type="button" class="btn bg-light border rounded-circle"><i class="fas fa-plus"></i></button>
+                        </div>
+
+                    <button type="submit" class="btn btn-warning my-3" name="add">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+
                     </div>
                 </form>
             </div>
