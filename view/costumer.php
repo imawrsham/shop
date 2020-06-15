@@ -104,14 +104,16 @@ if(isset($_POST['new']) && $_POST['new']==1) {
                     <td><?php echo $count; ?></td>
                     <td><a href="delete.php?id=<?php echo $row["ID"]; ?>">Cancel</a></td>
                     <?php
-                    $sql2 ="SELECT name, price FROM products WHERE  id='".$row['productID']."'";
+                    $sql2 ="SELECT name, price, quantity FROM products WHERE  id='".$row['productID']."'";
                     $result2 = $conn->query($sql2);
                     if ($result2->num_rows > 0) {
                         while($row = $result2->fetch_assoc()) {
                             $name = $row["name"];
-                            $price = $row["price"];?>
+                            $price = $row["price"];
+                            $quantity = $row["quantity"];?>
                             <td><?php echo $row['name'] ;?></td>
                             <td><?php echo $row['price'] ;?></td>
+                            <td><?php echo $row['quantity'] ;?></td>
                             </tr>
                             <?php $total_price += $row['price'];
                             $count++;}}};?>
