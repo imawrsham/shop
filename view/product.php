@@ -76,7 +76,6 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
 }
 ?>
     </div>
-       <h3 style="color: cornflowerblue;">&nbsp;&nbsp;<?php echo $status; ?></h3>
 </div>
 </body>
 <footer>
