@@ -26,7 +26,8 @@ $status = "";
 $count = 1;
 if (isset($_POST['new']) && $_POST['new'] == 1) {
     $id = $_POST['id'];
-    $sql2 = "INSERT INTO baskets (`productID`) VALUES (".$id.")";
+    $quantity = $_POST['quantity'];
+    $sql2 = "INSERT INTO baskets (`productID`, `quantity`) VALUES (".$id.", ".$quantity.")";
     $result2 = $conn->query($sql2);
     $status = "New Product add to basket Successfully.";
 }
@@ -58,6 +59,14 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
                                 <i class="fas fa-star"></i>
                                 <i class="far fa-star"></i>
                             </h6>
+                            <p>
+                                <input type="text" name="quantity" id="<?php echo $row["id"] ?>" value="0" />
+                            </p>
+                            <p>
+                                <button type="button" value="Incrémenter" id="btnIncrement" onclick="incrementer(<?php echo $row["id"] ?>)" class="btn bg-light border rounded-circle"><i class="fas fa-plus"></i></button>
+                                <button type="button" value="Décrémenter" id="btnDecrement" onclick="decrementer(<?php echo $row["id"] ?>)" class="btn bg-light border rounded-circle"><i class="fas fa-minus"></i></button>
+                            </p>
+
                             <button type="submit" class="btn btn-warning my-3" name="add">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                         </div>
                     </form>
@@ -72,4 +81,17 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
 </body>
 <footer>
     <?php include "footer.html"; ?>
+
+    <script>
+        function incrementer(id){
+            var i = document.getElementById(id);
+            i.value++;
+        }
+
+        function decrementer(id){
+            var i = document.getElementById(id);
+            i.value--;
+        }
+    </script>
+
 </footer>

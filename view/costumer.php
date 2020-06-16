@@ -6,66 +6,7 @@ $dbname = 'test';
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if(!$conn){
     die("Connection Failed!". mysqli_connect_error());
-};
-/*$status = '';
-if(isset($_POST['new']) && $_POST['new']==1) {
-    $firstname = $_REQUEST['firstname'];
-    $lastname = $_REQUEST['lastname'];
-    $email = $_REQUEST['email'];
-    $address = $_REQUEST['address'];
-    $sql = "INSERT INTO costumers 
-        (`firstname`, `lastname`, `email`, `address`) VALUES
-        ('$firstname', '$lastname', '$email', '$address')";
-    $costumer_id = 0;
-    if (mysqli_query($conn, $sql)) {
-        $costumer_id = mysqli_insert_id($conn);
-    } else {
-        mysqli_error($conn);
-    }
-    if ($costumer_id > 0) {
-        //$t = date("h:i:sa");
-        //$sql2 = "INSERT INTO orders (`costumerid`,`ordertime`) VALUES (".$costumer_id.",".$t.")";
-        //$sql2 = "INSERT INTO orders
-       // (`costumerid`, `ordertime`) VALUES
-        //('$firstname', '$t')";
-        $sql2 = "INSERT INTO orders (`costumerid`) VALUES (" . $costumer_id . ")";
-        $order_id = 0;
-        if (mysqli_query($conn, $sql2)) {
-            $order_id = mysqli_insert_id($conn);
-        }
-        if ($order_id > 0) {
-            $sql4 = "SELECT * FROM baskets";
-            $result4 = mysqli_query($conn, $sql4);
-            if ($result4->num_rows > 0) {
-                while ($row = mysqli_fetch_assoc($result4)) {
-                    $sql6 = "SELECT name, price FROM products WHERE id='".$row['productID']."'";
-                    $result6 = mysqli_query($conn, $sql6);
-                    //var_dump($result6);
-                    if ($result6->num_rows > 0) {
-                            $row1= mysqli_fetch_assoc($result6);
-                            $product_name = $row1['name'];
-                            $product_price = $row1['price'];
-                            //var_dump($product_price);
-                        $sql3= "INSERT INTO order_items 
-        (`orderid`, `productname`, `productprice`) VALUES
-        ('$order_id', '$product_name', '$product_price')";
-                            //$sql3 = "INSERT INTO order_items (`orderid`,`productname`,`productprice`) VALUES (".$order_id.",".$product_name.",".$product_price.")";
-                            $result3 = mysqli_query($conn, $sql3);
-                            //var_dump($result3);
-                            if (mysqli_query($conn, $sql3)) {
-                                $sql5 = "DELETE FROM baskets";
-                                $result5 = mysqli_query($conn, $sql5);
-                                //var_dump($result5);
-
-                        }
-                    }
-                }
-
-            }
-        }
-    }
-}*/
-?>
+};?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -86,11 +27,12 @@ if(isset($_POST['new']) && $_POST['new']==1) {
             <table class="table">
                 <thead>
                 <tr class="success">
-                    <th><strong>No</strong></th>
+                    <th><strong>No.</strong></th>
                     <th><strong>Cancel</strong></th>
-                    <th><strong>ProductName</strong></th>
-                    <th><strong>PriceName</strong></th>
                     <th><strong>Quantity</strong></th>
+                    <th><strong>ProductName</strong></th>
+                    <th><strong>Price</strong></th>
+                    <th><strong>Total Price</strong></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -100,22 +42,22 @@ if(isset($_POST['new']) && $_POST['new']==1) {
                 $result = mysqli_query($conn, $sql);
                 $total_price = 0;
                 while($row = mysqli_fetch_assoc($result)) {?>
-                    <tr class="info">
                     <td><?php echo $count; ?></td>
-                    <td><a href="delete.php?id=<?php echo $row["ID"]; ?>">Cancel</a></td>
+                    <td><a href="delete.php?id=<?php echo $row["ID"]; ?>"><span class="text-danger">Remove</span></a></td>
+                    <td><?php echo $row['quantity']; ?></td>
                     <?php
-                    $sql2 ="SELECT name, price, quantity FROM products WHERE  id='".$row['productID']."'";
+                    $sql2 ="SELECT name, price FROM products WHERE  id='".$row['productID']."'";
                     $result2 = $conn->query($sql2);
                     if ($result2->num_rows > 0) {
-                        while($row = $result2->fetch_assoc()) {
-                            $name = $row["name"];
-                            $price = $row["price"];
-                            $quantity = $row["quantity"];?>
-                            <td><?php echo $row['name'] ;?></td>
-                            <td><?php echo $row['price'] ;?></td>
-                            <td><?php echo $row['quantity'] ;?></td>
+                        while($row2 = $result2->fetch_assoc()) {
+                            $name = $row2["name"];
+                            $price = $row2["price"];?>
+                            <td><?php echo $row2['name'] ;?></td>
+                            <td>$ <?php echo $row2['price'] ;?></td>
+                            <?php  $total = ($row["quantity"] * $row2["price"]); ?>
+                            <td>$ <?php echo $total?> </td>
                             </tr>
-                            <?php $total_price += $row['price'];
+                            <?php $total_price += ($row["quantity"] * $row2["price"]);
                             $count++;}}};?>
 
                 </tbody>
@@ -195,4 +137,3 @@ if(isset($_POST['new']) && $_POST['new']==1) {
 </script>
 </body>
 </html>
-
