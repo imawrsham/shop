@@ -81,7 +81,6 @@
     }
     ?>
         </div>
-        <h3 style="color: cornflowerblue;"><?php echo $status; ?></h3>
     </div>
 
     <?php include "footer.html"; ?>

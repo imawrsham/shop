@@ -43,7 +43,7 @@ if(!$conn){
                 $total_price = 0;
                 while($row = mysqli_fetch_assoc($result)) {?>
                     <td><?php echo $count; ?></td>
-                    <td><a href="delete.php?id=<?php echo $row["ID"]; ?>"><span class="text-danger">Remove</span></a></td>
+                    <td><a class="nav-link" href="delete.php?id=<?php echo $row["ID"]; ?>"><i class="fa fa-trash"></i></a></td>
                     <td><?php echo $row['quantity']; ?></td>
                     <?php
                     $sql2 ="SELECT name, price FROM products WHERE  id='".$row['productID']."'";
