@@ -12,14 +12,14 @@
 </head>
 <style>
     body, html {
-        height: 90%;
+        height: 80%;
     }
     .bg {
         /* The image used */
         background-image: url("3.jpg");
 
         /* Half height */
-        height: 60%;
+        height: 100%;
 
         /* Center and scale the image nicely */
         background-position: center;
@@ -54,12 +54,19 @@ $ram = $row["ram"];
     <form method="post" action="product.php?id=<?php echo $row["id"]; ?>">
         <input type="hidden" name="new" value="1">
         <input type="hidden" name="id" value="<?php echo $id?>">
-        <div class="card shadow">
+        <div class="card shadow bg-light">
             <img class="rounded mx-auto d-block" src="<?php echo $row["image"]; ?>" width="245" height="230" class="img-responsive">
-            <h5 class="text-info"><?php echo $name; ?></h5>
-            <h5 class="text-danger"><?php echo $price.' Euro'; ?></h5>
-            <h4 class="text-danger"><?php echo $ram.' Gb'; ?></h4>
-            <h6 class="text-danger"><?php echo '<a href="product.php?id=' . $id . '">Details</a>'; ?></h6>
+            <h2><?php echo $name; ?></h2><br>
+            <h5 class="text-secondary">$ <?php echo $price; ?></h5>
+            <h5 class="text-secondary"><?php echo $ram; ?> Gb</h5>
+            <h6 style="color: yellowgreen";>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </h6>
+            <?php echo '<a class="btn btn-secondary" href="product.php?id=' . $id . '">Details</a>'; ?>
             <?php
         }
     }

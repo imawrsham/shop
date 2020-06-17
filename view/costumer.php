@@ -24,7 +24,7 @@ if(!$conn){
 <div class="container">
         <div class="form">
             <h2 style="text-align: center;">View Orders</h2>
-            <table class="table">
+            <table class="table" style="text-align: center">
                 <thead>
                 <tr class="success">
                     <th><strong>No.</strong></th>
@@ -42,7 +42,7 @@ if(!$conn){
                 $result = mysqli_query($conn, $sql);
                 $total_price = 0;
                 while($row = mysqli_fetch_assoc($result)) {?>
-                    <td><?php echo $count; ?></td>
+                    <td><?php echo $count; ?>.</td>
                     <td><a class="nav-link" href="delete.php?id=<?php echo $row["ID"]; ?>"><i class="fa fa-trash"></i></a></td>
                     <td><?php echo $row['quantity']; ?></td>
                     <?php
@@ -62,7 +62,7 @@ if(!$conn){
 
                 </tbody>
             </table>
-            <?php echo"<h5 style='text-align: right'>Total Price:".$total_price."</h5>";?>
+            <?php echo"<h5 style='text-align: right'>Total Price: $ ".$total_price."</h5>";?>
     <div>
             <h4 class="mb-3">Costumer Information</h4>
             <form name="form" method="post" action="success.php" class="needs-validation" novalidate>

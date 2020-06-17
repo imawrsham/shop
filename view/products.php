@@ -43,18 +43,16 @@
             $price = $row["price"];
             $ram = $row["ram"];
             ?>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <form method="post" action="products.php?id=<?php echo $row["id"]; ?>">
                      <input type="hidden" name="new" value="1">
                     <input type="hidden" name="id" value="<?php echo $id?>">
                     <div class="card shadow">
-                        <img src="<?php echo $row["image"]; ?>" width="245" height="210" class="img-responsive">
+                        <img src="<?php echo $row["image"]; ?>" width="338" height="280" class="img-responsive">
 
-                        <h5 class="text-info"><?php echo $name; ?></h5>
-                        <h5 class="text-danger"><?php echo $price.' Euro'; ?></h5>
-                        <h6 class="text-danger"><?php echo $ram.' Gb'; ?></h6>
-                        <h6 class="text-danger"><?php echo '<a href="product.php?id='.$id.'">Details</a>'; ?></h6>
-
+                        <h2><?php echo $name; ?></h2>
+                        <h5 class="text-secondary">$ <?php echo $price; ?></h5>
+                        <h6 class="text-secondary"><?php echo $ram; ?> Gb</h6>
                         <h6 style="color: yellowgreen";>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -62,7 +60,9 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </h6>
-
+                        <br>
+                        <?php echo '<a class="btn btn-secondary" href="product.php?id=' . $id . '">Details</a>'; ?>
+                        <br>
                         <p>
                             <input type="text" name="quantity" id="<?php echo $row["id"] ?>" value="0" />
                         </p>
