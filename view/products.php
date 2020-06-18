@@ -48,9 +48,16 @@
                     <input type="hidden" name="id" value="<?php echo $id?>">
                     <div class="card shadow">
                         <img src="<?php echo $row["image"]; ?>" width="338" height="280" class="img-responsive">
+<<<<<<< HEAD
                         <h2><?php echo $name; ?></h2>
                         <h5 class="text-secondary">$ <?php echo $price; ?></h5>
                         <h6 class="text-secondary"><?php echo $ram; ?> Gb</h6>
+=======
+
+                        <h2><?php echo $name; ?></h2>
+                        <h5 class="text-secondary">$ <?php echo $price; ?></h5>
+                        <h6 class="text-secondary"><?php echo $ram; ?> GB</h6>
+>>>>>>> 38f52162c9eab724dd201ebf7e6d48ef85b67c8a
                         <h6 style="color: yellowgreen";>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>

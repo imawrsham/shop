@@ -47,10 +47,18 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
                         <input type="hidden" name="id" value="<?php echo $id?>">
                         <div class="card shadow">
                             <img class="rounded mx-auto d-block" src="<?php echo $row["image"]; ?>" width="245" height="230" class="img-responsive">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 38f52162c9eab724dd201ebf7e6d48ef85b67c8a
                             <h2><?php echo $name; ?></h2><br>
                             <h5 class="text-secondary">$ <?php echo $price;?></h5>
-                            <h5 class="text-secondary"><?php echo $ram;?> Gb</h5>
+                            <h5 class="text-secondary"><?php echo $ram;?> GB</h5>
                             <h4 class="text-secondary"><?php echo $desc; ?></h4><br>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 38f52162c9eab724dd201ebf7e6d48ef85b67c8a
                             <h6 style="color: yellowgreen";>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
