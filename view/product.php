@@ -23,7 +23,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if(!$conn){
     die("Connection Failed!". mysqli_connect_error());}
 $status = "";
-$count = 1;
 if (isset($_POST['new']) && $_POST['new'] == 1) {
     $id = $_POST['id'];
     $sql2 = "INSERT INTO baskets (`productID`) VALUES (".$id.")";
@@ -34,7 +33,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
     $sql = "SELECT * FROM products WHERE id='".$id."'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
+    while($row = $result->fetch_assoc()){
         $id = $row["id"];
         $name = $row["name"];
         $price = $row["price"];
@@ -47,10 +46,10 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
                         <input type="hidden" name="id" value="<?php echo $id?>">
                         <div class="card shadow">
                             <img class="rounded mx-auto d-block" src="<?php echo $row["image"]; ?>" width="245" height="230" class="img-responsive">
-                            <h5 class="text-info"><?php echo $name; ?></h5>
+                            <h5 style="color: midnightblue"><?php echo $name; ?></h5>
                             <h5 class="text-danger"><?php echo $price.' Euro'; ?></h5>
-                            <h4 class="text-danger"><?php echo $ram.' Gb'; ?></h4>
-                            <h5 class="text-info"><?php echo $desc; ?></h5>
+                            <h4 class="text-danger"><?php echo $ram.' GB'; ?></h4>
+                            <h5 style="color:darkolivegreen";><?php echo $desc; ?></h5>
                             <h6 style="color: yellowgreen";>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -64,6 +63,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
         </div>
         <?php
     }
+
 }
 ?>
     </div>

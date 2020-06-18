@@ -32,7 +32,6 @@
         $status = "  New Product add to basket Successfully.";
     }
 
-
     $sql = "SELECT id, name, price, ram, image  FROM products";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
@@ -49,9 +48,9 @@
                     <div class="card shadow">
                         <img src="<?php echo $row["image"]; ?>" width="245" height="230" class="img-responsive">
 
-                        <h5 class="text-info"><?php echo $name; ?></h5>
+                        <h5 style="color: midnightblue";><?php echo $name; ?></h5>
                         <h5 class="text-danger"><?php echo $price.' Euro'; ?></h5>
-                        <h6 class="text-danger"><?php echo $ram.' Gb'; ?></h6>
+                        <h6 class="text-danger"><?php echo $ram.' GB'; ?></h6>
                         <h6 class="text-danger"><?php echo '<a href="product.php?id='.$id.'">Details</a>'; ?></h6>
                         <h6 style="color: yellowgreen";>
                             <i class="fas fa-star"></i>
