@@ -38,6 +38,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
             $result4 = mysqli_query($conn, $sql4);
             if ($result4->num_rows > 0) {
                 while ($row = mysqli_fetch_assoc($result4)) {
+                    $quantity = $row['quantity'];
                     $sql6 = "SELECT name, price FROM products WHERE id='" . $row['productID'] . "'";
                     $result6 = mysqli_query($conn, $sql6);
                     //var_dump($result6);
@@ -47,8 +48,8 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
                         $product_price = $row1['price'];
                         //var_dump($product_price);
                         $sql3 = "INSERT INTO order_items 
-                         (`orderid`, `productname`, `productprice`) VALUES
-                         ('$order_id', '$product_name', '$product_price')";
+                         (`orderid`, `quantity`, `productname`, `productprice`) VALUES
+                         ('$order_id', '$quantity', '$product_name', '$product_price')";
                         //$sql3 = "INSERT INTO order_items (`orderid`,`productname`,`productprice`) VALUES (".$order_id.",".$product_name.",".$product_price.")";
                         //$result3 = mysqli_query($conn, $sql3);
                         //var_dump($result3);
