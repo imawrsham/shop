@@ -23,7 +23,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if(!$conn){
     die("Connection Failed!". mysqli_connect_error());}
 $status = "";
-$count = 1;
 if (isset($_POST['new']) && $_POST['new'] == 1) {
     $id = $_POST['id'];
     $quantity = $_POST['quantity'];
@@ -35,7 +34,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
     $sql = "SELECT * FROM products WHERE id='".$id."'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
+    while($row = $result->fetch_assoc()){
         $id = $row["id"];
         $name = $row["name"];
         $price = $row["price"];
@@ -48,10 +47,12 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
                         <input type="hidden" name="id" value="<?php echo $id?>">
                         <div class="card shadow">
                             <img class="rounded mx-auto d-block" src="<?php echo $row["image"]; ?>" width="245" height="230" class="img-responsive">
+
                             <h2><?php echo $name; ?></h2><br>
                             <h5 class="text-secondary">$ <?php echo $price;?></h5>
                             <h5 class="text-secondary"><?php echo $ram;?> Gb</h5>
                             <h4 class="text-secondary"><?php echo $desc; ?></h4><br>
+
                             <h6 style="color: yellowgreen";>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -73,6 +74,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
         </div>
         <?php
     }
+
 }
 ?>
     </div>

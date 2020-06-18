@@ -33,7 +33,6 @@
         $status = "  New Product add to basket Successfully.";
     }
 
-
     $sql = "SELECT id, name, price, ram, image  FROM products";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
