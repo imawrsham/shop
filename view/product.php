@@ -50,7 +50,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
 
                             <h2><?php echo $name; ?></h2><br>
                             <h5 class="text-secondary">$ <?php echo $price;?></h5>
-                            <h5 class="text-secondary"><?php echo $ram;?> Gb</h5>
+                            <h5 class="text-secondary"><?php echo $ram;?> GB</h5>
                             <h4 class="text-secondary"><?php echo $desc; ?></h4><br>
 
                             <h6 style="color: yellowgreen";>

@@ -58,7 +58,7 @@ $ram = $row["ram"];
             <img class="rounded mx-auto d-block" src="<?php echo $row["image"]; ?>" width="245" height="230" class="img-responsive">
             <h2><?php echo $name; ?></h2><br>
             <h5 class="text-secondary">$ <?php echo $price; ?></h5>
-            <h5 class="text-secondary"><?php echo $ram; ?> Gb</h5>
+            <h5 class="text-secondary"><?php echo $ram; ?> GB</h5>
             <h6 style="color: yellowgreen";>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
