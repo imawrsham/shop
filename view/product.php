@@ -25,7 +25,8 @@ if(!$conn){
 $status = "";
 if (isset($_POST['new']) && $_POST['new'] == 1) {
     $id = $_POST['id'];
-    $sql2 = "INSERT INTO baskets (`productID`) VALUES (".$id.")";
+    $quantity = $_POST['quantity'];
+    $sql2 = "INSERT INTO baskets (`productID`, `quantity`) VALUES (".$id.", ".$quantity.")";
     $result2 = $conn->query($sql2);
     $status = "New Product add to basket Successfully.";
 }
@@ -46,10 +47,12 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
                         <input type="hidden" name="id" value="<?php echo $id?>">
                         <div class="card shadow">
                             <img class="rounded mx-auto d-block" src="<?php echo $row["image"]; ?>" width="245" height="230" class="img-responsive">
-                            <h5 style="color: midnightblue"><?php echo $name; ?></h5>
-                            <h5 class="text-danger"><?php echo $price.' Euro'; ?></h5>
-                            <h4 class="text-danger"><?php echo $ram.' GB'; ?></h4>
-                            <h5 style="color:darkolivegreen";><?php echo $desc; ?></h5>
+
+                            <h2><?php echo $name; ?></h2><br>
+                            <h5 class="text-secondary">$ <?php echo $price;?></h5>
+                            <h5 class="text-secondary"><?php echo $ram;?> Gb</h5>
+                            <h4 class="text-secondary"><?php echo $desc; ?></h4><br>
+
                             <h6 style="color: yellowgreen";>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -57,6 +60,14 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
                                 <i class="fas fa-star"></i>
                                 <i class="far fa-star"></i>
                             </h6>
+                            <p>
+                                <input type="text" name="quantity" id="<?php echo $row["id"] ?>" value="0" />
+                            </p>
+                            <p>
+                                <button type="button" value="Incrémenter" id="btnIncrement" onclick="incrementer(<?php echo $row["id"] ?>)" class="btn bg-light border rounded-circle"><i class="fas fa-plus"></i></button>
+                                <button type="button" value="Décrémenter" id="btnDecrement" onclick="decrementer(<?php echo $row["id"] ?>)" class="btn bg-light border rounded-circle"><i class="fas fa-minus"></i></button>
+                            </p>
+
                             <button type="submit" class="btn btn-warning my-3" name="add">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                         </div>
                     </form>
@@ -67,9 +78,21 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
 }
 ?>
     </div>
-       <h3 style="color: cornflowerblue;">&nbsp;&nbsp;<?php echo $status; ?></h3>
 </div>
 </body>
 <footer>
     <?php include "footer.html"; ?>
+
+    <script>
+        function incrementer(id){
+            var i = document.getElementById(id);
+            i.value++;
+        }
+
+        function decrementer(id){
+            var i = document.getElementById(id);
+            i.value--;
+        }
+    </script>
+
 </footer>

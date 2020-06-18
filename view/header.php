@@ -11,6 +11,6 @@
             </div>
         </div>
     </div>
-    <?php include "menu.html";?>
+    <?php include "menu.php";?>
 </nav>
 </div>
