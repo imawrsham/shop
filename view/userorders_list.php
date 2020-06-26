@@ -59,7 +59,8 @@ if(isset($_SESSION['username'])){
         </tbody>
     </table>
     <?php
-    echo "<a href='homeuser.php'><input type='button' name='back' value='back'></a>";
+    echo "<a href='homeuser.php'><input type='button' name='back' value='back'></a><br/><br/>";
+    echo "<a href='export.php'><input type='button' name='export' value='export'></a>";
 }else{
     echo "<script>location.href='loginuser.php'</script>";
 }?>
