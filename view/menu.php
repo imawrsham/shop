@@ -1,4 +1,5 @@
 <?php
+//session_start();
 $servername = 'localhost';
 $username = 'root';
 $password = '';
@@ -8,7 +9,6 @@ if(!$conn){
     die("Connection Failed!". mysqli_connect_error());
 }
 ?>
-
 <div class="float-right">
     <nav class="navbar navbar-expand-lg navbar-light">
         <ul class="navbar-nav">
@@ -18,14 +18,20 @@ if(!$conn){
             <li class="nav-item ml-3">
                 <a class="nav-link" href="products.php"><i class="fa fa-list" style="font-size:35px"></i></a>
             </li>
+            <li class="nav-item ml-3">
+                <a class="nav-link" href="loginuser.php"><i class="fas fa-user-plus" style="font-size:35px"></i></a>
+            </li>
             <li class="active ml-3">
-                <a class="nav-link" href="costumer.php"><i class="fa fa-shopping-cart" style="font-size:35px"></i></a>
+                <a class="nav-link" href="userlist.php"><i class="fa fa-shopping-cart" style="font-size:35px"></i></a>
             </li>
             <?php
-            $sql= "SELECT * FROM baskets";
+            if(isset($_SESSION['username'])){
+            $id = $_SESSION['id'];
+            $sql= "SELECT * FROM baskets WHERE userID = '".$id."'";
             $result = $conn->query($sql);
+            //var_dump($result);
             $count = mysqli_num_rows($result);?>
-            <a class="text-danger" href="costumer.php"><?php echo $count ?></a>
+            <a class="text-danger" href="userlist.php"><?php echo $count;} ?></a>
         </ul>
     </nav>
 </div>

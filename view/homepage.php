@@ -16,7 +16,7 @@
     }
     .bg {
         /* The image used */
-        background-image: url("3.jpg");
+        background-image: url("../local/3.jpg");
 
         /* Half height */
         height: 100%;
@@ -42,7 +42,7 @@ if(!$conn){
     <div class="text-center">
     <h1 class="py-5 text-center">Unsere <br> Beste Produkt</h1>
 <?php
-$sql = "SELECT id, name, price, ram, image  FROM products where id = 1";
+$sql = "SELECT id, name, price, ram, image  FROM products where id = 31";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 while ($row = $result->fetch_assoc()) {
@@ -55,7 +55,7 @@ $ram = $row["ram"];
         <input type="hidden" name="new" value="1">
         <input type="hidden" name="id" value="<?php echo $id?>">
         <div class="card shadow bg-light">
-            <img class="rounded mx-auto d-block" src="<?php echo $row["image"]; ?>" width="245" height="230" class="img-responsive">
+            <img class="rounded mx-auto d-block" src="<?php echo '../local/'.$row['image']; ?>" width="245" height="230" class="img-responsive">
             <h2><?php echo $name; ?></h2><br>
             <h5 class="text-secondary">$ <?php echo $price; ?></h5>
             <h5 class="text-secondary"><?php echo $ram; ?> GB</h5>

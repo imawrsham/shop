@@ -2,7 +2,7 @@
      height: 100%;
  }
  .full-body {
-     background-image: url("homepage.jpg");
+     background-image: url("../local/homepage.jpg");
      background-repeat: no-repeat;
      background-position: center;
 
