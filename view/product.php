@@ -15,6 +15,7 @@
 <div class="container">
     <div class="text-center">
 <?php
+session_start();
 $servername = 'localhost';
 $username = 'root';
 $password = '';
@@ -23,10 +24,12 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if(!$conn){
     die("Connection Failed!". mysqli_connect_error());}
 $status = "";
-if (isset($_POST['new']) && $_POST['new'] == 1) {
+if (isset($_POST['new']) && $_POST['new'] == 1 && ($_SESSION['username'])) {
     $id = $_POST['id'];
+    $id2 = $_SESSION['id'];
+    //var_dump($id2);
     $quantity = $_POST['quantity'];
-    $sql2 = "INSERT INTO baskets (`productID`, `quantity`) VALUES (".$id.", ".$quantity.")";
+    $sql2 = "INSERT INTO baskets (`productID`, `userID`,`quantity`) VALUES (".$id.",".$id2.", ".$quantity.")";
     $result2 = $conn->query($sql2);
     $status = "New Product add to basket Successfully.";
 }
@@ -46,13 +49,11 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
                         <input type="hidden" name="new" value="1">
                         <input type="hidden" name="id" value="<?php echo $id?>">
                         <div class="card shadow">
-                            <img class="rounded mx-auto d-block" src="<?php echo $row["image"]; ?>" width="245" height="230" class="img-responsive">
-
+                            <img class="rounded mx-auto d-block" src="<?php echo '../local/'.$row['image']; ?>" width="245" height="230" class="img-responsive">
                             <h2><?php echo $name; ?></h2><br>
                             <h5 class="text-secondary">$ <?php echo $price;?></h5>
                             <h5 class="text-secondary"><?php echo $ram;?> GB</h5>
                             <h4 class="text-secondary"><?php echo $desc; ?></h4><br>
-
                             <h6 style="color: yellowgreen";>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -64,8 +65,8 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
                                 <input type="text" name="quantity" id="<?php echo $row["id"] ?>" value="0" />
                             </p>
                             <p>
-                                <button type="button" value="Incrémenter" id="btnIncrement" onclick="incrementer(<?php echo $row["id"] ?>)" class="btn bg-light border rounded-circle"><i class="fas fa-plus"></i></button>
                                 <button type="button" value="Décrémenter" id="btnDecrement" onclick="decrementer(<?php echo $row["id"] ?>)" class="btn bg-light border rounded-circle"><i class="fas fa-minus"></i></button>
+                                <button type="button" value="Incrémenter" id="btnIncrement" onclick="incrementer(<?php echo $row["id"] ?>)" class="btn bg-light border rounded-circle"><i class="fas fa-plus"></i></button>
                             </p>
 
                             <button type="submit" class="btn btn-warning my-3" name="add">Add to Cart <i class="fas fa-shopping-cart"></i></button>

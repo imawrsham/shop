@@ -9,5 +9,5 @@ if(!$conn){
 }
 $sql = "DELETE FROM baskets WHERE id='".$_REQUEST['id']."'";
 $result = mysqli_query($conn, $sql) or die ( mysqli_error());
-header("Location: costumer.php");
+header("Location: userlist.php");
 ?>
