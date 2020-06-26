@@ -10,11 +10,13 @@ if (!$conn) {
 }
 if (isset($_POST['new']) && $_POST['new'] == 1 && ($_SESSION['username'])) {
     $id = $_SESSION['id'];
-    $t = date("h:i:s");
+    $t = date("Y-m-d h:i:s");
     $sql2 = "INSERT INTO userorders
         (`userid`, `ordertime`) VALUES
         ('$id', '$t')";
     $result7 = mysqli_query($conn, $sql2);
+    $costumer_id = 0;
+    $costumer_id = mysqli_insert_id($conn);
     if (isset($id)) {
         $sql4 = "SELECT * FROM baskets where userID = '".$id."'";
         $result4 = mysqli_query($conn, $sql4);
@@ -27,7 +29,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1 && ($_SESSION['username'])) {
                 $result6 = mysqli_query($conn, $sql6);
                 $result7 = mysqli_query($conn, $sql7);
                 $row2 = mysqli_fetch_assoc($result7);
-                var_dump($row2);
+                //var_dump($row2);
                 if ($result6->num_rows > 0) {
                     $row1 = mysqli_fetch_assoc($result6);
                     //var_dump($row1);
@@ -37,7 +39,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1 && ($_SESSION['username'])) {
                     //var_dump($product_price);
                     $sql3 = "INSERT INTO userorder_items 
                          (`userorderid`, `quantity`, `productname`, `productprice`) VALUES
-                         ('$order_id', '$quantity', '$product_name', '$product_price')";
+                         ('$costumer_id', '$quantity', '$product_name', '$product_price')";
                     //$sql3 = "INSERT INTO order_items (`orderid`,`productname`,`productprice`) VALUES (".$order_id.",".$product_name.",".$product_price.")";
                     //$result3 = mysqli_query($conn, $sql3);
                     //var_dump($sql3);

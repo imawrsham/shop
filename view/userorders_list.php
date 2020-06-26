@@ -32,6 +32,7 @@ if(isset($_SESSION['username'])){
         <tr class="success">
             <th><strong>No.</strong></th>
             <th><strong>Orderid</strong></th>
+            <th><strong>Orderdate</strong></th>
             <th><strong>Details</strong></th>
         </tr>
         </thead>
@@ -40,15 +41,16 @@ if(isset($_SESSION['username'])){
         $count = 1;
         $id = $_SESSION['id'];
         //var_dump($id);
-        $sql1 = "SELECT id FROM userorders WHERE userID='" . $id . "'";
+        $sql1 = "SELECT * FROM userorders WHERE userid='" . $id . "'";
         $result2 = mysqli_query($conn, $sql1);
         //$row2 = mysqli_fetch_assoc($result2);
         //$sql = "SELECT * FROM userorder_items where userorderid= '".$row2['id']."'";
         //$result = mysqli_query($conn, $sql);
-        //var_dump($sql);
+       // var_dump($result2);
         while($row = mysqli_fetch_assoc($result2)) {?>
             <td><?php echo $count; ?>.</td>
             <td><?php echo $row['id'];?></td>
+            <td><?php echo $row['ordertime'];?></td>
             <td><a class="nav-link" href="Details.php?id=<?php echo $row["id"]; ?>">Details</a></td>
             </tr>
             <?php
