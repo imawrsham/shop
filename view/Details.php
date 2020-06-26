@@ -38,11 +38,13 @@ if(isset($_SESSION['username'])){
         <tbody>
         <?php
         $count = 1;
-        $id = $_SESSION['id'];
+        //$id = $_SESSION['id'];
         //var_dump($id);
-        $sql1 = "SELECT id FROM userorders WHERE userID='" . $id . "'";
+        $id = $_REQUEST['id'];
+        $sql1 = "SELECT id FROM userorders WHERE id='" . $id . "'";
         $result2 = mysqli_query($conn, $sql1);
         $row2 = mysqli_fetch_assoc($result2);
+        //var_dump($sql1);
         $sql = "SELECT * FROM userorder_items where userorderid= '".$row2['id']."'";
         $result = mysqli_query($conn, $sql);
         //var_dump($sql);
@@ -57,7 +59,7 @@ if(isset($_SESSION['username'])){
         </tbody>
     </table>
     <?php
-    echo "<a href='homeuser.php'><input type='button' name='back' value='back'></a>";
+    echo "<a href='userorders_list.php'><input type='button' name='back' value='back'></a>";
 }else{
     echo "<script>location.href='loginuser.php'</script>";
 }?>
