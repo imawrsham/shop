@@ -26,6 +26,10 @@
         die("Connection Failed!". mysqli_connect_error());
     }
     $status = "";
+    if (isset($_POST['new']) && $_POST['new'] == 1 && (!$_SESSION['username'])) {
+        header("location: loginuser.php");
+        echo "<script>alert(\"Hello!please log in!\");</script>";
+    }
     if (isset($_POST['new']) && $_POST['new'] == 1 && ($_SESSION['username'])) {
         $id = $_POST['id'];
         $id2 = $_SESSION['id'];
