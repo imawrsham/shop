@@ -1,3 +1,21 @@
+<?php
+session_start();
+include "connection.php";
+$status = "";
+if (isset($_POST['new']) && $_POST['new'] == 1 && (!$_SESSION['username'])) {
+    header("location: loginuser.php");
+    echo "<script>alert(\"Hello!please log in!\");</script>";
+}
+if (isset($_POST['new']) && $_POST['new'] == 1 && ($_SESSION['username'])) {
+    $id = $_POST['id'];
+    $id2 = $_SESSION['id'];
+    //var_dump($id2);
+    $quantity = $_POST['quantity'];
+    $sql2 = "INSERT INTO baskets (`productID`, `userID`,`quantity`) VALUES (".$id.",".$id2.", ".$quantity.")";
+    $result2 = $conn->query($sql2);
+    $status = "New Product add to basket Successfully.";
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,28 +33,7 @@
 <div class="container">
     <div class="text-center">
 <?php
-session_start();
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'test';
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if(!$conn){
-    die("Connection Failed!". mysqli_connect_error());}
-$status = "";
-if (isset($_POST['new']) && $_POST['new'] == 1 && (!$_SESSION['username'])) {
-    header("location: loginuser.php");
-    echo "<script>alert(\"Hello!please log in!\");</script>";
-}
-if (isset($_POST['new']) && $_POST['new'] == 1 && ($_SESSION['username'])) {
-    $id = $_POST['id'];
-    $id2 = $_SESSION['id'];
-    //var_dump($id2);
-    $quantity = $_POST['quantity'];
-    $sql2 = "INSERT INTO baskets (`productID`, `userID`,`quantity`) VALUES (".$id.",".$id2.", ".$quantity.")";
-    $result2 = $conn->query($sql2);
-    $status = "New Product add to basket Successfully.";
-}
+//session_start();
     $id = $_REQUEST['id'];
     $sql = "SELECT * FROM products WHERE id='".$id."'";
     $result = $conn->query($sql);

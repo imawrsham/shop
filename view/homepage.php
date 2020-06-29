@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -29,13 +30,7 @@
 </style>
 <body>
 <?php
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'test';
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if(!$conn){
-    die("Connection Failed!". mysqli_connect_error());}
+include "connection.php";
 ?>
 <div class="bg"></div>
 <div class="container">

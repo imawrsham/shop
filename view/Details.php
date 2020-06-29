@@ -1,13 +1,6 @@
 <?php
 session_start();
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'test';
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if(!$conn){
-    die("Connection Failed!". mysqli_connect_error());
-}
+include "connection.php";
 if(isset($_SESSION['username'])){
     ?>
     <!doctype html>
@@ -32,6 +25,7 @@ if(isset($_SESSION['username'])){
         <tr class="success">
             <th><strong>No.</strong></th>
             <th><strong>ProductName</strong></th>
+            <th><strong>Quantity</strong></th>
             <th><strong>Productprice</strong></th>
         </tr>
         </thead>
@@ -51,7 +45,8 @@ if(isset($_SESSION['username'])){
         while($row = mysqli_fetch_assoc($result)) {?>
             <td><?php echo $count; ?>.</td>
             <td><?php echo $row['productname'] ?></td>
-            <td><?php echo $row['productprice'] ?></td>
+            <td><?php echo $row['quantity'] ?></td>
+            <td><?php echo $row['quantity']*$row['productprice'] ?></td>
             </tr>
             <?php
             $count++;};?>

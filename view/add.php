@@ -1,13 +1,6 @@
 <?php
 session_start();
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'test';
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if(!$conn){
-    die("Connection Failed!". mysqli_connect_error());
-};
+include "connection.php";
 $msg = "";
 if (isset($_POST['upload'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);

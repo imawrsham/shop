@@ -1,13 +1,6 @@
 <?php
 session_start();
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'test';
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if(!$conn){
-    die("Connection Failed!". mysqli_connect_error());
-}
+include "connection.php";
 if(isset($_SESSION['username'])){
     $id = $_SESSION['id'];
     //var_dump($id);
@@ -26,8 +19,8 @@ if(isset($_SESSION['username'])){
     $result = mysqli_query($conn, $sql);
    // var_dump($result2);
     while($data = mysqli_fetch_assoc($result)) {
-        $allData .=$data['userorderid'].',' .$data['productname'].','.$data['productprice']."\n";
-        $response = "data:text/csv;charset=utf-8,Orderid,Name,Price\n";
+        $allData .=$data['userorderid'].',' .$data['productname'].',' .$data['quantity'].','.$data['productprice']."\n";
+        $response = "data:text/csv;charset=utf-8,Orderid,Name,Quantity,Price\n";
         $response .=$allData;
         //echo '<a href="'.$response.'" download="export.csv">Download</a>';
     }}
