@@ -1,13 +1,6 @@
 <?php
 session_start();
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'test';
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if(!$conn){
-    die("Connection Failed!". mysqli_connect_error());
-}
+include "connection.php";
 $name = 'atiyeh';
 $password = '123456';
 if(isset($_SESSION['name'])) {

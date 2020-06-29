@@ -1,13 +1,5 @@
 <?php
-//session_start();
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'test';
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if(!$conn){
-    die("Connection Failed!". mysqli_connect_error());
-}
+include "connection.php";
 ?>
 <div class="float-right">
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -27,10 +19,16 @@ if(!$conn){
             <?php
             if(isset($_SESSION['username'])){
             $id = $_SESSION['id'];
+            $count =0;
             $sql= "SELECT * FROM baskets WHERE userID = '".$id."'";
             $result = $conn->query($sql);
+            if($result->num_rows >0){
+                while($row = $result->fetch_assoc()){
+                 $count +=$row['quantity'];
+                }
+            }
             //var_dump($result);
-            $count = mysqli_num_rows($result);?>
+            //$count = mysqli_num_rows($result);?>
             <a class="text-danger" href="userlist.php"><?php echo $count;} ?></a>
         </ul>
     </nav>

@@ -1,12 +1,5 @@
 <?php
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'test';
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if (!$conn) {
-    die("Connection Failed!" . mysqli_connect_error());
-};
+include "connection.php";
 if (isset($_POST['new']) && $_POST['new'] == 1) {
     $firstname = $_REQUEST['firstname'];
     $lastname = $_REQUEST['lastname'];

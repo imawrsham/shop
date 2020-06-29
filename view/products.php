@@ -1,3 +1,20 @@
+<?php
+session_start();
+include "connection.php";
+$status = "";
+if (isset($_POST['new']) && $_POST['new'] == 1 && (!$_SESSION['username'])) {
+    header("location: loginuser.php");
+    echo "<script>alert(\"Hello!please log in!\");</script>";
+}
+if (isset($_POST['new']) && $_POST['new'] == 1 && ($_SESSION['username'])) {
+    $id = $_POST['id'];
+    $id2 = $_SESSION['id'];
+    $quantity = $_POST['quantity'];
+    $sql2 = "INSERT INTO baskets (`productID`, `userID`,`quantity`) VALUES (".$id.",".$id2.", ".$quantity.")";
+    $result2 = $conn->query($sql2);
+    $status = "  New Product add to basket Successfully.";
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,30 +32,7 @@
 <div class="container">
     <div class="container d-inline-block">
         <div class="row text-center py-5">
-    <?php
-    session_start();
-    $servername = 'localhost';
-    $username = 'root';
-    $password = '';
-    $dbname = 'test';
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    if(!$conn){
-        die("Connection Failed!". mysqli_connect_error());
-    }
-    $status = "";
-    if (isset($_POST['new']) && $_POST['new'] == 1 && (!$_SESSION['username'])) {
-        header("location: loginuser.php");
-        echo "<script>alert(\"Hello!please log in!\");</script>";
-    }
-    if (isset($_POST['new']) && $_POST['new'] == 1 && ($_SESSION['username'])) {
-        $id = $_POST['id'];
-        $id2 = $_SESSION['id'];
-        $quantity = $_POST['quantity'];
-        $sql2 = "INSERT INTO baskets (`productID`, `userID`,`quantity`) VALUES (".$id.",".$id2.", ".$quantity.")";
-        $result2 = $conn->query($sql2);
-        $status = "  New Product add to basket Successfully.";
-    }
-
+ <?php
     $sql = "SELECT id, name, price, ram, image  FROM products";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
