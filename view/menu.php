@@ -27,10 +27,16 @@ if(!$conn){
             <?php
             if(isset($_SESSION['username'])){
             $id = $_SESSION['id'];
+            $count = 0;
             $sql= "SELECT * FROM baskets WHERE userID = '".$id."'";
             $result = $conn->query($sql);
-            //var_dump($result);
-            $count = mysqli_num_rows($result);?>
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $count += $row["quantity"];
+                }
+            }
+            ?>
+
             <a class="text-danger" href="userlist.php"><?php echo $count;} ?></a>
         </ul>
     </nav>
