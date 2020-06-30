@@ -1,6 +1,8 @@
 <?php
 session_start();
 include "connection.php";
+require_once('../rest/connectDB.php');
+$database = new CreateDb("test", "products");
 $msg = "";
 if (isset($_POST['upload'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -9,11 +11,10 @@ if (isset($_POST['upload'])) {
     $image = $_FILES['image']['name'];
     $des = mysqli_real_escape_string($conn, $_POST['description']);
     $target = "../local/".basename($image);
-    //$sql = "INSERT INTO products (name, price, ram, image, description) VALUES ('$name', '$price', '$ram', '$image', '$des')";
-    $sql = "INSERT INTO products 
-                         (`name`, `price`, `ram`, `image`, `description`) VALUES
-                         ('$name', '$price', '$ram', '$image','$des')";
-    mysqli_query($conn, $sql);
+
+    $data = array('name'=>$name, 'price'=>$price, 'ram'=>$ram, 'image'=>$image, 'description'=>$des);
+    $result = $database->insert($data);
+
     if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
         $msg = "Image uploaded successfully";
     }else{
