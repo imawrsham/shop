@@ -51,10 +51,16 @@ class CreateDb
         $values = array_values($data);
         $sql =  "INSERT INTO $this->tablename(".implode(",",$fields).") VALUES ('".implode("','", $values )."')";
         $result = mysqli_query($this->con, $sql);
-        var_dump($sql);
+        //var_dump($sql);
         return $result;
 
     }
-
+    public function delete($data){
+        $fields = array_keys($data);
+        $values = array_values($data);
+        $sql = "DELETE FROM $this->tablename WHERE (".implode(",",$fields).") = ('".implode("','", $values )."') ";
+        $result = mysqli_query($this->con, $sql);
+        return $result;
+    }
 
 }

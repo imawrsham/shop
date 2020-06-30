@@ -4,7 +4,7 @@ $database = new CreateDb("test", "func");?>
 <div class="row text-center py-5">
     <?php
     $data = array(
-        'id'=>'1'
+        'id'=>'48'
     );
        $result = $database->getData($data);
     while ($row = mysqli_fetch_assoc($result)){
@@ -15,13 +15,17 @@ $database = new CreateDb("test", "func");?>
     ?>
 </div>
 <?php
-$data = array(
+$data1 = array(
     'Firstname'=>'hasan',
     'Lastname'=>'Rezaie',
-    'Age'=>'32'
+    'Age'=>'42'
 );
 
-$result = $database->insert($data);
+$result = $database->insert($data1);
+
+$data2 = array('id'=> '49');
+$result = $database->delete($data2);
+
 
 
 ?>
