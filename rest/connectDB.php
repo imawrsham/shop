@@ -36,8 +36,10 @@ class CreateDb
     }
 
     // get product from the database
-    public function getData(){
-        $sql = "SELECT * FROM $this->tablename";
+    public function getData($data){
+        $fields = array_keys($data);
+        $values = array_values($data);
+        $sql = "SELECT * FROM $this->tablename WHERE (".implode(",",$fields).") = ('".implode("','", $values )."') ";
         $result = mysqli_query($this->con, $sql);
         if (mysqli_num_rows($result) > 0) {
             return $result;
@@ -47,10 +49,10 @@ class CreateDb
     public function insert($data){
         $fields = array_keys($data);
         $values = array_values($data);
-        $sql2 =  "INSERT INTO $this->tablename(".implode(",",$fields).") VALUES ('".implode("','", $values )."')";
-        $result2 = mysqli_query($this->con, $sql2);
-        var_dump($sql2);
-        return $result2;
+        $sql =  "INSERT INTO $this->tablename(".implode(",",$fields).") VALUES ('".implode("','", $values )."')";
+        $result = mysqli_query($this->con, $sql);
+        var_dump($sql);
+        return $result;
 
     }
 
