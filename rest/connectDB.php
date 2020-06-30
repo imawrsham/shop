@@ -1,6 +1,4 @@
 <?php
-
-
 class CreateDb
 {
     public $servername;
@@ -27,13 +25,12 @@ class CreateDb
         $this->password = $password;
 
         // create connection
-        $this->con = mysqli_connect($servername, $username, $password,$dbname);
+        $this->con = mysqli_connect($servername, $username, $password, $dbname);
 
         // Check connection
-        if (!$this->con){
+        if (!$this->con) {
             die("Connection failed : " . mysqli_connect_error());
         }
-
 
 
     }
@@ -42,8 +39,20 @@ class CreateDb
     public function getData(){
         $sql = "SELECT * FROM $this->tablename";
         $result = mysqli_query($this->con, $sql);
-        if(mysqli_num_rows($result) > 0){
+        if (mysqli_num_rows($result) > 0) {
             return $result;
         }
     }
+
+    public function insert($data){
+        $fields = array_keys($data);
+        $values = array_values($data);
+        $sql2 =  "INSERT INTO $this->tablename(".implode(",",$fields).") VALUES ('".implode("','", $values )."')";
+        $result2 = mysqli_query($this->con, $sql2);
+        var_dump($sql2);
+        return $result2;
+
+    }
+
+
 }
