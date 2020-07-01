@@ -8,8 +8,6 @@ class CreateDb
     public $tablename;
     public $con;
 
-
-    // class constructor
     public function __construct(
         $tablename = "Productdb",
         $dbname = "test",
@@ -23,11 +21,8 @@ class CreateDb
         $this->servername = $servername;
         $this->username = $username;
         $this->password = $password;
-
-        // create connection
         $this->con = mysqli_connect($servername, $username, $password, $dbname);
 
-        // Check connection
         if (!$this->con) {
             die("Connection failed : " . mysqli_connect_error());
         }

@@ -19,7 +19,6 @@ include "connection.php";
             <?php
             if(isset($_SESSION['username'])){
             $id = $_SESSION['id'];
-
             $count = 0;
             $sql= "SELECT * FROM baskets WHERE userID = '".$id."'";
             $result = $conn->query($sql);

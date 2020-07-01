@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "connection.php";
-require_once('../rest/connectDB.php');
+require_once('connectDB.php');
 $database = new CreateDb("products");
 if(isset($_SESSION['username'])){
 ?>

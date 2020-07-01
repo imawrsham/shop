@@ -1,17 +1,15 @@
 <?php
 session_start();
 include "connection.php";
-require_once('../rest/connectDB.php');
+require_once('connectDB.php');
 $database = new CreateDb("baskets");
 $status = "";
 if (isset($_POST['new']) && $_POST['new'] == 1 && (!$_SESSION['username'])) {
     header("location: loginuser.php");
-    echo "<script>alert(\"Hello!please log in!\");</script>";
 }
 if (isset($_POST['new']) && $_POST['new'] == 1 && ($_SESSION['username'])) {
     $data = array('productID'=>$_POST['id'], 'userID'=>$_SESSION['id'], 'quantity'=>$_POST['quantity']);
     $result = $database->insert($data);
-
     $status = "  New Product add to basket Successfully.";
 }
 ?>
@@ -21,8 +19,7 @@ if (isset($_POST['new']) && $_POST['new'] == 1 && ($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--- Font Awesome--->
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--baraye ezafe kardane icon neveshte shode!-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <?php include "header.php";?>
