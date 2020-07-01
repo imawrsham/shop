@@ -1,13 +1,14 @@
 <?php
 include "connection.php";
+require_once('../rest/connectDB.php');
+$database1 = new CreateDb("costumers");
+$database2 = new CreateDb("orders");
+$database3 = new CreateDb("baskets");
+$database4 = new CreateDb("products");
+$database5 = new CreateDb("order_items");
 if (isset($_POST['new']) && $_POST['new'] == 1) {
-    $firstname = $_REQUEST['firstname'];
-    $lastname = $_REQUEST['lastname'];
-    $email = $_REQUEST['email'];
-    $address = $_REQUEST['address'];
-    $sql = "INSERT INTO costumers 
-        (`firstname`, `lastname`, `email`, `address`) VALUES
-        ('$firstname', '$lastname', '$email', '$address')";
+    $data = array('firstname'=>$_REQUEST['firstname'], 'lastname'=>$_REQUEST['lastname'], 'email'=>$_REQUEST['email'], 'address'=>$_REQUEST['address']);
+    $result = $database1->insert($data);
     $costumer_id = 0;
     if (mysqli_query($conn, $sql)) {
         $costumer_id = mysqli_insert_id($conn);
@@ -16,48 +17,25 @@ if (isset($_POST['new']) && $_POST['new'] == 1) {
     }
     if ($costumer_id > 0) {
         $t = date("h:i:s");
-        //$sql2 = "INSERT INTO orders (`costumerid`,`ordertime`) VALUES (".$costumer_id.",".$t.")";
-        $sql2 = "INSERT INTO orders
-        (`costumerid`, `ordertime`) VALUES
-        ('$costumer_id', '$t')";
-         //var_dump($sql2);
-        //$sql2 = "INSERT INTO orders (`costumerid`) VALUES (" . $costumer_id . ")";
+        $data = array('costumerid'=>$costumer_id, 'ordertime'=>$t);
+        $result2 = $database2->insert($data);
         $order_id = 0;
-        if (mysqli_query($conn, $sql2)) {
+        if (mysqli_query($conn, $sql)) {
             $order_id = mysqli_insert_id($conn);
         }
         if ($order_id > 0) {
-            $sql4 = "SELECT * FROM baskets";
-            $result4 = mysqli_query($conn, $sql4);
-            if ($result4->num_rows > 0) {
-                while ($row = mysqli_fetch_assoc($result4)) {
-                    $quantity = $row['quantity'];
-                    $sql6 = "SELECT name, price FROM products WHERE id='" . $row['productID'] . "'";
-                    $result6 = mysqli_query($conn, $sql6);
-                    //var_dump($result6);
-                    if ($result6->num_rows > 0) {
-                        $row1 = mysqli_fetch_assoc($result6);
-                        $product_name = $row1['name'];
-                        $product_price = $row1['price'];
-                        //var_dump($product_price);
-                        $sql3 = "INSERT INTO order_items 
-                         (`orderid`, `quantity`, `productname`, `productprice`) VALUES
-                         ('$order_id', '$quantity', '$product_name', '$product_price')";
-                        //$sql3 = "INSERT INTO order_items (`orderid`,`productname`,`productprice`) VALUES (".$order_id.",".$product_name.",".$product_price.")";
-                        //$result3 = mysqli_query($conn, $sql3);
-                        //var_dump($result3);
-                        if (mysqli_query($conn, $sql3)) {
+
+            $result3 = $database3->selectData();
+                while ($row = mysqli_fetch_assoc($result3)) {
+                    $result4 = $database4->selectData();
+                        $row1 = mysqli_fetch_assoc($result4);
+                    $data = array('orderid'=>$order_id, 'quantity'=>$row['quantity'], 'productname'=>$row1['name'], 'productprice'=>$row1['price']);
+                    $result = $database1->insert($data);
                             $sql5 = "DELETE FROM baskets";
                             $result5 = mysqli_query($conn, $sql5);
-                            //var_dump($result5);
-
                         }
                     }
                 }
-
-            }
-        }
-    }
 }
 ?>
 <html>
