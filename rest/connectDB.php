@@ -32,8 +32,6 @@ class CreateDb
             die("Connection failed : " . mysqli_connect_error());
         }
     }
-
-    // get product from the database
     public function getData($data){
         $fields = array_keys($data);
         $values = array_values($data);

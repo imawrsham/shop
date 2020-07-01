@@ -11,7 +11,6 @@ $database = new CreateDb("func");?>
             echo $row['Lastname'];
             echo $row['Age'];
         }
-
         ?>
     </div>
 
