@@ -1,6 +1,8 @@
 <?php
 session_start();
 include "connection.php";
+require_once('../rest/connectDB.php');
+$database = new CreateDb("products");
 if(isset($_SESSION['username'])){
 ?>
 <!doctype html>
@@ -45,9 +47,8 @@ if(isset($_SESSION['username'])){
                 <td><a class="nav-link" href="delete.php?id=<?php echo $row["ID"]; ?>"><i class="fa fa-trash"></i></a></td>
                 <td><?php echo $row['quantity']; ?></td>
                 <?php
-                $sql2 ="SELECT name, price FROM products WHERE  id='".$row['productID']."'";
-                $result2 = $conn->query($sql2);
-                if ($result2->num_rows > 0) {
+                $data = array('id'=>$row['productID']);
+                $result2 = $database->getData($data);
                     while($row2 = $result2->fetch_assoc()) {
                         $name = $row2["name"];
                         $price = $row2["price"];?>
@@ -58,7 +59,7 @@ if(isset($_SESSION['username'])){
                         </tr>
                         <?php
                         $total_price += ($row["quantity"] * $row2["price"]);
-                        $count++;}}};?>
+                        $count++;}};?>
             <hr class="mb-4">
             </tbody>
         </table>

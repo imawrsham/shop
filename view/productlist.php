@@ -1,6 +1,8 @@
 <?php
 session_start();
 include "connection.php";
+    require_once('../rest/connectDB.php');
+    $database = new CreateDb("products");
 if(isset($_SESSION['name'])){
     ?>
 <!doctype html>
@@ -33,8 +35,7 @@ if(isset($_SESSION['name'])){
             <tbody>
             <?php
             $count = 1;
-            $sql = "SELECT * FROM products ORDER BY id asc;";
-            $result = mysqli_query($conn, $sql);
+            $result = $database->selectData();
             $total_price = 0;
             while($row = mysqli_fetch_assoc($result)) {?>
                 <td><?php echo $count; ?>.</td>

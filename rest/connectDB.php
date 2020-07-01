@@ -11,8 +11,8 @@ class CreateDb
 
     // class constructor
     public function __construct(
-        $dbname = "Newdb",
         $tablename = "Productdb",
+        $dbname = "test",
         $servername = "localhost",
         $username = "root",
         $password = ""
@@ -31,8 +31,6 @@ class CreateDb
         if (!$this->con) {
             die("Connection failed : " . mysqli_connect_error());
         }
-
-
     }
 
     // get product from the database
@@ -40,6 +38,14 @@ class CreateDb
         $fields = array_keys($data);
         $values = array_values($data);
         $sql = "SELECT * FROM $this->tablename WHERE (".implode(",",$fields).") = ('".implode("','", $values )."') ";
+        $result = mysqli_query($this->con, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            return $result;
+        }
+    }
+
+    public function selectData(){
+        $sql = "SELECT * FROM $this->tablename";
         $result = mysqli_query($this->con, $sql);
         if (mysqli_num_rows($result) > 0) {
             return $result;

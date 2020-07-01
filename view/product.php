@@ -1,18 +1,16 @@
 <?php
 session_start();
 include "connection.php";
+require_once('../rest/connectDB.php');
+$database = new CreateDb( "baskets");
 $status = "";
 if (isset($_POST['new']) && $_POST['new'] == 1 && (!$_SESSION['username'])) {
     header("location: loginuser.php");
     echo "<script>alert(\"Hello!please log in!\");</script>";
 }
 if (isset($_POST['new']) && $_POST['new'] == 1 && ($_SESSION['username'])) {
-    $id = $_POST['id'];
-    $id2 = $_SESSION['id'];
-    //var_dump($id2);
-    $quantity = $_POST['quantity'];
-    $sql2 = "INSERT INTO baskets (`productID`, `userID`,`quantity`) VALUES (".$id.",".$id2.", ".$quantity.")";
-    $result2 = $conn->query($sql2);
+    $data = array('productID'=>$_POST['id'], 'userID'=>$_SESSION['id'], 'quantity'=>$_POST['quantity']);
+    $result = $database->insert($data);
     $status = "New Product add to basket Successfully.";
 }
 ?>
@@ -33,28 +31,22 @@ if (isset($_POST['new']) && $_POST['new'] == 1 && ($_SESSION['username'])) {
 <div class="container">
     <div class="text-center">
 <?php
-//session_start();
+    $database1 = new CreateDb("test", "products");
     $id = $_REQUEST['id'];
-    $sql = "SELECT * FROM products WHERE id='".$id."'";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()){
-        $id = $row["id"];
-        $name = $row["name"];
-        $price = $row["price"];
-        $ram = $row["ram"];
-        $desc = $row["description"];
+    $data = array('id'=>$id);
+    $result = $database1->getData($data);
+    while ($row = mysqli_fetch_assoc($result)){
         ?>
         <div class="container">
                     <form method="post" action="product.php?id=<?php echo $row["id"]; ?>">
                         <input type="hidden" name="new" value="1">
-                        <input type="hidden" name="id" value="<?php echo $id?>">
+                        <input type="hidden" name="id" value="<?php echo $row["id"]?>">
                         <div class="card shadow">
                             <img class="rounded mx-auto d-block" src="<?php echo '../local/'.$row['image']; ?>" width="245" height="230" class="img-responsive">
-                            <h2><?php echo $name; ?></h2><br>
-                            <h5 class="text-secondary">$ <?php echo $price;?></h5>
-                            <h5 class="text-secondary"><?php echo $ram;?> GB</h5>
-                            <h4 class="text-secondary"><?php echo $desc; ?></h4><br>
+                            <h2><?php echo $row["name"]; ?></h2><br>
+                            <h5 class="text-secondary">$ <?php echo $row["price"];?></h5>
+                            <h5 class="text-secondary"><?php echo $row["ram"];?> GB</h5>
+                            <h4 class="text-secondary"><?php echo $row["description"]; ?></h4><br>
                             <h6 style="color: yellowgreen";>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -75,8 +67,6 @@ if (isset($_POST['new']) && $_POST['new'] == 1 && ($_SESSION['username'])) {
                     </form>
         </div>
         <?php
-    }
-
 }
 ?>
     </div>
