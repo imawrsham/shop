@@ -1,6 +1,6 @@
 <?php
 include "connection.php";
-require_once('../rest/connectDB.php');
+require_once('connectDB.php');
 $database1 = new CreateDb("costumers");
 $database2 = new CreateDb("orders");
 $database3 = new CreateDb("baskets");

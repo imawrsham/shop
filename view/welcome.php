@@ -15,8 +15,5 @@ if(isset($_SESSION['name'])) {
     }else{
         echo "username or password incorrect!";
         }
-
-
-
 }
 ?>
