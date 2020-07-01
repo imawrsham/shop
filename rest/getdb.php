@@ -20,7 +20,6 @@ $data1 = array(
     'Lastname'=>'Rezaie',
     'Age'=>'42'
 );
-
 $result = $database->insert($data1);
 
 $data2 = array('id'=> '49');

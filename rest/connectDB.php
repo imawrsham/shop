@@ -34,8 +34,6 @@ class CreateDb
 
 
     }
-
-    // get product from the database
     public function getData($data){
         $fields = array_keys($data);
         $values = array_values($data);
